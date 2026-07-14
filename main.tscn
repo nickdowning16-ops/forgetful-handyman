@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cnv2o3frcceii"]
+
+[ext_resource type="PackedScene" uid="uid://b17u75ks8wp7m" path="res://handy_man.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cvrdlfxhojah" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cc0d8qbol5hi3" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d2lk0ne48ot70" path="res://problem.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://3a36l3jvwgn2" path="res://loop_choice.tscn" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paldn"]
+size = Vector2(64, 64)
+
+[node name="main" type="Node2D" unique_id=256242160]
+script = ExtResource("1_lquwl")
+
+[node name="player" parent="." unique_id=741083176 instance=ExtResource("1_ig7tw")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1643734812]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=769353941]
+position = Vector2(192, 128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1440903946]
+position = Vector2(192, 128)
+shape = SubResource("RectangleShape2D_paldn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1242891497]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1724350817]
+position = Vector2(128, 128)
+shape = SubResource("RectangleShape2D_paldn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1969825185]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=771906824]
+position = Vector2(256, 64)
+shape = SubResource("RectangleShape2D_paldn")
+
+[node name="problem" parent="." unique_id=1210366278 instance=ExtResource("3_h2yge")]
+position = Vector2(320, 256)
+
+[node name="loop" parent="problem" unique_id=1053673419 instance=ExtResource("4_1bvp3")]
+visible = false
+position = Vector2(-192, -128)
+
+[node name="loop2" parent="problem" unique_id=1040398108 instance=ExtResource("4_1bvp3")]
+visible = false
+position = Vector2(0, -128)
+
+[node name="loop3" parent="problem" unique_id=1863587216 instance=ExtResource("4_1bvp3")]
+visible = false
+position = Vector2(192, -128)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1418489147]
+position = Vector2(384, 192)
+offset = Vector2(32, 32)
+
+[connection signal="area_entered" from="problem" to="." method="_on_problem_area_entered"]
+[connection signal="area_exited" from="problem" to="." method="_on_problem_area_exited"]
