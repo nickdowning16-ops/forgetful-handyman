@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cd7o14st0mpug"]
+
+[ext_resource type="Script" uid="uid://c8pqubbx6b3ho" path="res://Scripts/UI/main_menu.gd" id="1_2sit6"]
+
+[node name="MainMenu" type="Control" unique_id=1937286047]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2sit6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1039181700]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.807495
+offset_top = -62.82251
+offset_right = 62.807495
+offset_bottom = 62.82251
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=109381904]
+layout_mode = 2
+text = "Play"
+
+[node name="MainButton" type="Button" parent="VBoxContainer" unique_id=885887979]
+layout_mode = 2
+text = "\"Main\""
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1972090261]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,5 +1,5 @@
 extends Node
-var QTEUI = preload("res://UI/Scenes/Quick Time Event UI.tscn")
+var QTEUI = preload("res://UI/Scenes/quick_time_event_UI.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
