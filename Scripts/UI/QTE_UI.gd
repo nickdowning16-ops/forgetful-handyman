@@ -4,16 +4,12 @@ extends Control
 var starting_time
 var time_left
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time_left -= delta
 	time_bar.value = (time_left / starting_time) * 100 # bamboozled by not having 100 for a min there
-
 
 func init(time):
 	starting_time = time

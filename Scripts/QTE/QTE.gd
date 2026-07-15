@@ -1,11 +1,18 @@
+class_name QTE
 extends Node
-@export var qte_data: QTE_Data
 
-# Called when the node enters the scene tree for the first time.
+# Base event that unique events will inherit from for their overriden logic
+
+@export var time_allowed: float = 10
+
 func _ready():
-	pass # Replace with function body.
+	pass # override
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass # override
+
+func QTE_success():
+	pass # override
+	
+func QTE_fail():
+	pass # override
