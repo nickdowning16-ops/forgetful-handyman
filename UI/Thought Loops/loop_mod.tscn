@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bya8kphm8s7yc"]
+
+[ext_resource type="Script" uid="uid://b1unccseoro13" path="res://Scripts/UI/Thought Loops/thought_loop.gd" id="1_7f3k8"]
+[ext_resource type="Texture2D" uid="uid://bj0f5f0jn6vll" path="res://Art/Temp/temp_loop.png" id="1_vfovv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkagk"]
+size = Vector2(32, 32)
+
+[node name="LoopMod" type="Control" unique_id=1101033128]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7f3k8")
+
+[node name="Panel" type="Panel" parent="." unique_id=1993755508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=446383809]
+texture = ExtResource("1_vfovv")
+
+[node name="LoopDescription" type="RichTextLabel" parent="Panel" unique_id=615972727]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Description here"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MouseTriggerArea2D" type="Area2D" parent="Panel" unique_id=772766875]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/MouseTriggerArea2D" unique_id=1030879239]
+shape = SubResource("RectangleShape2D_hkagk")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/MouseTriggerArea2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/MouseTriggerArea2D" to="." method="_on_area_2d_mouse_exited"]
