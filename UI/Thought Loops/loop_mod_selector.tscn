@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1659940540]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,6 +30,8 @@ layout_mode = 2
 
 [node name="LoopMod2" parent="HBoxContainer" unique_id=892102866 instance=ExtResource("1_xpfeb")]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -25)
 
 [node name="LoopMod3" parent="HBoxContainer" unique_id=380020042 instance=ExtResource("1_xpfeb")]
 layout_mode = 2
