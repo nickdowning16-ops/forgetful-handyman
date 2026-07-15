@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-QuickTimeEventManager="*uid://b873wqrhuvt5e"
-GameManager="*uid://qheppobagxri"
+QTE_Manager="*uid://b873wqrhuvt5e"
+Game_Manager="*uid://qheppobagxri"
 
 [display]
 

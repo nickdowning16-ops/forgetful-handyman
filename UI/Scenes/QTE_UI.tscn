@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bcxmqhnk5fpsu"]
+
+[ext_resource type="Script" uid="uid://c25b443mfh5uo" path="res://Scripts/UI/QTE_UI.gd" id="1_s4v3x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb62c"]
+bg_color = Color(0.6, 0.34509805, 0.6, 0.16862746)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qj0j0"]
+size = Vector2(100, 100)
+
+[node name="QuickTimeEvent" type="Control" unique_id=275562933]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4v3x")
+
+[node name="BackgroundPanel" type="Panel" parent="." unique_id=2080182557]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pb62c")
+
+[node name="WindowPanel" type="Panel" parent="BackgroundPanel" unique_id=1137661581]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = -200.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowVBoxContainer" type="VBoxContainer" parent="BackgroundPanel/WindowPanel" unique_id=342949005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpperWindow" type="Panel" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer" unique_id=914970449]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpperVBoxContainer" type="VBoxContainer" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow" unique_id=1423588864]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QTEDescription" type="RichTextLabel" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow/UpperVBoxContainer" unique_id=304043937]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 42
+text = "QTE Description Placeholder"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBar" type="TextureProgressBar" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow/UpperVBoxContainer" unique_id=1384953004]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+value = 40.0
+nine_patch_stretch = true
+texture_progress = SubResource("PlaceholderTexture2D_qj0j0")
+tint_under = Color(0, 0, 1, 1)
+tint_over = Color(1, 0, 0, 1)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="LowerWindow" type="Panel" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer" unique_id=720894321]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="CheatButton" type="Button" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/LowerWindow" unique_id=633718001]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -100.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "cheat"
+
+[connection signal="pressed" from="BackgroundPanel/WindowPanel/WindowVBoxContainer/LowerWindow/CheatButton" to="." method="_on_cheat_button_pressed"]

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="QTE_Data" format=3 uid="uid://qx364pfjmm2n"]
+
+[ext_resource type="Script" uid="uid://cso1m3b4j16b8" path="res://Scripts/QTE/QTE_data.gd" id="1_cqimy"]
+
+[resource]
+script = ExtResource("1_cqimy")
+metadata/_custom_type_script = "uid://cso1m3b4j16b8"
