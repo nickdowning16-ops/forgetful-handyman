@@ -4,6 +4,9 @@ extends Control
 var starting_time
 var time_left
 
+func get_event_container():
+	return $BackgroundPanel/WindowPanel/WindowVBoxContainer/LowerWindow
+
 func _ready():
 	pass # Replace with function body.
 

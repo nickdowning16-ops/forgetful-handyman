@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dmwnder48rf1n"]
+
+[ext_resource type="Script" uid="uid://d1grofkn7g6k3" path="res://Scripts/QTE/QTE_hammer_nail.gd" id="1_eg3fw"]
+[ext_resource type="Texture2D" uid="uid://bqw7e5q8ruhv2" path="res://Art/Temp/temp_hammer.png" id="2_ell1r"]
+[ext_resource type="Texture2D" uid="uid://wo3yly2reko5" path="res://Art/Temp/temp_nail.png" id="3_s5qad"]
+
+[node name="QteHammerNail" type="Control" unique_id=1883862197]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eg3fw")
+
+[node name="Hammer" type="Control" parent="." unique_id=1095469928]
+anchors_preset = 0
+offset_left = 916.0
+offset_top = 470.0
+offset_right = 956.0
+offset_bottom = 510.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Hammer" unique_id=1409099744]
+texture = ExtResource("2_ell1r")
+
+[node name="Nail" type="Control" parent="." unique_id=2111299561]
+anchors_preset = 0
+offset_left = 1100.0
+offset_top = 416.0
+offset_right = 1140.0
+offset_bottom = 456.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Nail" unique_id=1225902355]
+rotation = -1.5707964
+texture = ExtResource("3_s5qad")
