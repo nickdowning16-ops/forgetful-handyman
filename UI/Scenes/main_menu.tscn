@@ -51,6 +51,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "\"Main\""
 
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=905145359]
+custom_minimum_size = Vector2(240, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "Settings"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1972090261]
 custom_minimum_size = Vector2(240, 100)
 layout_mode = 2
