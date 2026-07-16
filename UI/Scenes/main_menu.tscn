@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cd7o14st0mpug"]
 
 [ext_resource type="Script" uid="uid://c8pqubbx6b3ho" path="res://Scripts/UI/main_menu.gd" id="1_2sit6"]
+[ext_resource type="Texture2D" uid="uid://ds7iy7lhsrbkg" path="res://Art/Temp/temp_menu_background.png" id="2_7w4jk"]
+[ext_resource type="Texture2D" uid="uid://cb7dk2id1jj4e" path="res://Art/Temp/temp_title.png" id="3_2oafp"]
 
 [node name="MainMenu" type="Control" unique_id=1937286047]
 layout_mode = 3
@@ -11,32 +13,60 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2sit6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1039181700]
+[node name="Control" type="Control" parent="." unique_id=1935299799]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -62.807495
-offset_top = -62.82251
-offset_right = 62.807495
-offset_bottom = 62.82251
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1111819887]
+texture = ExtResource("2_7w4jk")
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1039181700]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.6
+anchor_right = 0.1
+anchor_bottom = 0.6
+offset_top = -66.5
+offset_right = 125.61499
+offset_bottom = 66.5
+grow_vertical = 2
+offset_transform_enabled = true
 theme_override_constants/separation = 20
 
 [node name="StartButton" type="Button" parent="VBoxContainer" unique_id=109381904]
+custom_minimum_size = Vector2(240, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Play"
 
 [node name="MainButton" type="Button" parent="VBoxContainer" unique_id=885887979]
+custom_minimum_size = Vector2(240, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "\"Main\""
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1972090261]
+custom_minimum_size = Vector2(240, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="Control2" type="Control" parent="." unique_id=1283065579]
+anchors_preset = 0
+offset_left = 65.0
+offset_top = 86.0
+offset_right = 105.0
+offset_bottom = 126.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control2" unique_id=519654217]
+texture = ExtResource("3_2oafp")
+centered = false
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainButton" to="." method="_on_main_button_pressed"]
