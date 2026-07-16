@@ -27,10 +27,10 @@ func _process(delta):
 	
 	if time_elapsed >= total_time:
 		# ran out the whole timer without pressing at all
-		# fail_qte()
+		QTE_Manager.failed_QTE()
 		return
 		
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("swing_hammer"):
 		attempt_swing()
 
 func start_idle_vibration():
@@ -43,16 +43,12 @@ func attempt_swing():
 	has_swung = true
 	idle_tween.kill()  # stop vibration immediately
 
-	var in_window = time_elapsed >= hit_window_start and time_elapsed <= hit_window_end
-
-	# play anim for t/f ^
-	if in_window:
+	if time_elapsed >= hit_window_start and time_elapsed <= hit_window_end:
 		good_swing()
 	else:
 		bad_swing()
 
 func good_swing():
-	print("good")
 	$Hammer.rotation = base_rotation
 	var swing_tween = create_tween()
 	swing_tween.set_ease(Tween.EASE_OUT)
@@ -62,16 +58,19 @@ func good_swing():
 	swing_tween.tween_property($Hammer, "rotation", base_rotation - deg_to_rad(30), 0.1)
 	swing_tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(60), 0.15)
 	
+	QTE_Manager.passed_QTE()
+
 func bad_swing():
-	print("bad")
 	$Hammer.rotation = base_rotation
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_BACK)
 
-	# wind up the same way, but overshoot/glance off at a skewed angle,
+	# wind up but overshoot at a skewed angle
 	# like it clipped the nail sideways instead of striking true
 	tween.tween_property($Hammer, "rotation", base_rotation - deg_to_rad(30), 0.1)
-	tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(75), 0.12)  # overshoots further
-	tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(45), 0.08)  # bounces back off, glancing
+	tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(75), 0.12)
+	tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(45), 0.08)
+	
+	QTE_Manager.failed_QTE()
 	

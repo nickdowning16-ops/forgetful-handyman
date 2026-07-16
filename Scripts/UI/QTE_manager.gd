@@ -10,13 +10,25 @@ func _process(delta):
 	pass
 
 # take in an instance of the event to attach?
-func open_QTE():
+func open_QTE(parentUI):
 	QTE_inst = QTEUI.instantiate()
-	get_tree().root.add_child(QTE_inst)
+	parentUI.add_child(QTE_inst)
 	QTE_inst.init(10)
 	
 	# TEMP
 	QTE_inst.get_event_container().add_child(temp_QTE.instantiate())
+
+func passed_QTE():
+	print("you passed... thats it")
+	await get_tree().create_timer(3).timeout
+	complete_QTE()
+	pass
+
+func failed_QTE():
+	await get_tree().create_timer(3).timeout
+	Game_Manager.lose_life()
+	complete_QTE()
+	pass
 
 func complete_QTE():
 	QTE_inst.queue_free()

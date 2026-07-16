@@ -68,6 +68,9 @@ sources/0 = SubResource("TileSetAtlasSource_272bh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paldn"]
 size = Vector2(64, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkagk"]
+size = Vector2(60, 62)
+
 [node name="main" type="Node2D" unique_id=256242160]
 script = ExtResource("1_lquwl")
 
@@ -122,5 +125,20 @@ position = Vector2(0, -128)
 visible = false
 position = Vector2(192, -128)
 
+[node name="QTESpawner" type="Area2D" parent="." unique_id=1633632283]
+position = Vector2(0, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="QTESpawner" unique_id=273046014]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QTESpawner" unique_id=775257813]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_hkagk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1453521401]
+
 [connection signal="area_entered" from="problem" to="." method="_on_problem_area_entered"]
 [connection signal="area_exited" from="problem" to="." method="_on_problem_area_exited"]
+[connection signal="area_entered" from="QTESpawner" to="." method="_on_qte_spawner_area_entered"]

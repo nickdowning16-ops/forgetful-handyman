@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var choice = %Window
+#@onready var choice = %Window
 
 @onready var loop_selector = preload("res://UI/Thought Loops/loop_mod_selector.tscn")
 var loop_selector_inst
@@ -21,3 +21,7 @@ func _on_problem_area_exited(area: Area2D) -> void:
 	#$problem/loop3.hide()
 	
 	loop_selector_inst.queue_free()
+
+func _on_qte_spawner_area_entered(area):
+	print("hi")
+	QTE_Manager.open_QTE($CanvasLayer)

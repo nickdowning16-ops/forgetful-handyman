@@ -1,8 +1,8 @@
 extends Control
 @onready var time_bar = $BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow/UpperVBoxContainer/TimeBar
 
-var starting_time
-var time_left
+var starting_time = 0
+var time_left = 0
 
 func get_event_container():
 	return $BackgroundPanel/WindowPanel/WindowVBoxContainer/LowerWindow
