@@ -25,3 +25,15 @@ func _on_problem_area_exited(area: Area2D) -> void:
 func _on_qte_spawner_area_entered(area):
 	print("hi")
 	QTE_Manager.open_QTE($CanvasLayer)
+
+func _on_front_area_entered(area: Area2D) -> void:
+	$RoomCovers/Front.hide()
+
+func _on_mid_left_area_entered(area: Area2D) -> void:
+	$RoomCovers/MidLeft.hide()
+
+func _on_mid_right_area_entered(area: Area2D) -> void:
+	$RoomCovers/MidRight.hide()
+
+func _on_back_area_entered(area: Area2D) -> void:
+	$RoomCovers/Back.hide()
