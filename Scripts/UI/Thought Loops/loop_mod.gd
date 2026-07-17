@@ -32,3 +32,9 @@ func spawn():
 	tween.tween_property($EditableContainer, "position:y", $EditableContainer.position.y - rise_distance, fade_duration)
 	
 	# play anim of some idle like glow
+
+func init(data : Loop_Mod_Data):
+	# set sprite, description
+	$EditableContainer/Sprite2D.texture = data.image
+	$EditableContainer/LoopDescription.text = data.description
+	pass

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://xmv4wv8y4bt0"]
 
+[ext_resource type="Script" uid="uid://chhu7jdyqcbod" path="res://Scripts/UI/Thought Loops/loop_mod_selector.gd" id="1_soqjj"]
 [ext_resource type="PackedScene" uid="uid://bya8kphm8s7yc" path="res://UI/Thought Loops/loop_mod.tscn" id="1_xpfeb"]
 
 [node name="LoopModSelector" type="Control" unique_id=2087781854]
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_soqjj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1659940540]
 custom_minimum_size = Vector2(150, 150)

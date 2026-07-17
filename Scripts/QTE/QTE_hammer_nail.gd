@@ -1,4 +1,4 @@
-extends Node
+extends QTE
 
 @export var total_time: float = 6.0
 @export var hit_window_start: float = 3.0

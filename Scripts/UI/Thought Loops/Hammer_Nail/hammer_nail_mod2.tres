@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Loop_Mod_Data" format=3 uid="uid://b7c6qmdg4ex86"]
+
+[ext_resource type="Script" uid="uid://cyw717emy577f" path="res://Scripts/UI/Thought Loops/loop_mod_data.gd" id="1_fa5ip"]
+
+[sub_resource type="Gradient" id="Gradient_id8g7"]
+offsets = PackedFloat32Array(0, 0.57560974, 0.83902436, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1.540184e-06, 0.63007545, 0.9212114, 1, 0.83902436, 0.83902436, 0.83902436, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o0q4c"]
+gradient = SubResource("Gradient_id8g7")
+
+[resource]
+script = ExtResource("1_fa5ip")
+id = "mod2"
+image = SubResource("GradientTexture2D_o0q4c")
+display_name = "Second try"
+description = "If you fail you can use another nail"
+metadata/_custom_type_script = "uid://cyw717emy577f"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Loop_Mod_Data" format=3 uid="uid://dewb3vdvdy0wc"]
+
+[ext_resource type="Script" uid="uid://cyw717emy577f" path="res://Scripts/UI/Thought Loops/loop_mod_data.gd" id="1_h1nmq"]
+
+[sub_resource type="Gradient" id="Gradient_id8g7"]
+offsets = PackedFloat32Array(0, 0.57560974, 0.83902436, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.9637278, 0.30063477, 0.59325, 1, 0.83902436, 0.83902436, 0.83902436, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o0q4c"]
+gradient = SubResource("Gradient_id8g7")
+
+[resource]
+script = ExtResource("1_h1nmq")
+id = "mod1"
+image = SubResource("GradientTexture2D_o0q4c")
+display_name = "Bigger hammer window"
+description = "A larger window of time to correctly hammer the nail"
+metadata/_custom_type_script = "uid://cyw717emy577f"
