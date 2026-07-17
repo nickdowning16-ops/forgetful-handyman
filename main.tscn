@@ -72,6 +72,23 @@ texture_region_size = Vector2i(64, 64)
 2:3/0 = 0
 2:3/0/texture_origin = Vector2i(32, 32)
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 0, -64, 0, 0, -64, 0)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(32, 32)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 0, -64, 0, 0, -64, 0)
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(32, 32)
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 0, -64, 0, 0, -64, 0)
+7:1/0 = 0
+7:1/0/texture_origin = Vector2i(32, 32)
+6:1/0 = 0
+6:1/0/texture_origin = Vector2i(32, 32)
+6:2/0 = 0
+6:2/0/texture_origin = Vector2i(32, 32)
+3:3/0 = 0
+3:3/0/texture_origin = Vector2i(32, 32)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 0, -64, 0, 0, -64, 0)
+7:2/0 = 0
+7:2/0/texture_origin = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_paldn"]
 tile_size = Vector2i(64, 64)
@@ -89,7 +106,7 @@ script = ExtResource("1_lquwl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=792736546]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAAAP//AAACAAIAAAD///7/AAACAAEAAAAAAP7/AAACAAEAAAABAP7/AAACAAEAAAACAP7/AAACAAEAAAADAP7/AAACAAEAAAD///3/AAACAAEAAAAAAP3/AAACAAEAAAABAP3/AAACAAEAAAACAP3/AAACAAEAAAADAP3/AAACAAEAAAABAP//AAAEAAIAAAACAP//AAAEAAIAAAADAP//AAAEAAIAAAD/////AAAEAAIAAAD+////AAADAAIAAAAEAP//AAAFAAIAAAAEAP7/AAADAAEAAAD+//7/AAABAAEAAAD+//3/AAABAAEAAAD+//z/AAABAAIAAAD+//r/AAABAAAAAAD+//v/AAABAAEAAAAEAP3/AAADAAEAAAAEAPz/AAACAAMAAAAEAPv/AAADAAEAAAAEAPr/AAACAAMAAAAEAPn/AAADAAEAAAD///r/AAACAAAAAAADAPj/AAACAAAAAAAEAPj/AAADAAAAAAACAPj/AAACAAAAAAABAPn/AAABAAEAAAABAPj/AAABAAAAAAABAPr/AAAAAAAAAAAAAPr/AAACAAAAAAABAPz/AAAAAAIAAAABAPv/AAAAAAEAAAACAPr/AAACAAAAAAACAPz/AAACAAIAAAADAPr/AAACAAIAAAACAPv/AAACAAEAAAADAPn/AAACAAEAAAACAPn/AAACAAEAAAADAPv/AAACAAEAAAADAPz/AAACAAAAAAAAAPz/AAACAAIAAAAAAPv/AAACAAEAAAD///v/AAACAAEAAAD///z/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAACAAIAAAD///7/AAACAAEAAAAAAP7/AAACAAEAAAABAP7/AAACAAEAAAACAP7/AAACAAEAAAADAP7/AAACAAEAAAD///3/AAACAAEAAAAAAP3/AAACAAEAAAABAP3/AAAHAAIAAAACAP3/AAACAAEAAAADAP3/AAACAAEAAAABAP//AAAEAAIAAAACAP//AAAEAAIAAAADAP//AAAEAAIAAAD/////AAAEAAIAAAD+////AAADAAIAAAAEAP//AAAFAAIAAAAEAP7/AAADAAEAAAD+//7/AAABAAEAAAD+//3/AAABAAEAAAD+//z/AAABAAIAAAD+//r/AAABAAAAAAD+//v/AAABAAEAAAAEAP3/AAADAAEAAAAEAPz/AAACAAMAAAAEAPv/AAADAAEAAAAEAPr/AAACAAMAAAAEAPn/AAADAAEAAAD///r/AAAHAAAAAAADAPj/AAACAAAAAAAEAPj/AAADAAAAAAACAPj/AAACAAAAAAABAPn/AAABAAEAAAABAPj/AAABAAAAAAABAPr/AAAAAAAAAAAAAPr/AAACAAAAAAABAPz/AAAAAAIAAAABAPv/AAAAAAEAAAACAPr/AAACAAAAAAACAPz/AAACAAIAAAADAPr/AAACAAIAAAACAPv/AAACAAEAAAADAPn/AAACAAEAAAACAPn/AAAGAAIAAAADAPv/AAACAAEAAAADAPz/AAACAAAAAAAAAPz/AAACAAIAAAAAAPv/AAACAAEAAAD///v/AAAHAAEAAAD///z/AAACAAAAAAA=")
 tile_set = SubResource("TileSet_paldn")
 
 [node name="player" parent="." unique_id=741083176 instance=ExtResource("1_ig7tw")]
@@ -132,6 +149,7 @@ shape = SubResource("RectangleShape2D_hkagk")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1453521401]
 
 [node name="RoomCovers" type="Node2D" parent="." unique_id=155322549]
+visible = false
 
 [node name="Front" type="ColorRect" parent="RoomCovers" unique_id=167605136]
 clip_children = 1
@@ -214,6 +232,17 @@ position = Vector2(192, -384)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Back" unique_id=1355236547]
 shape = SubResource("RectangleShape2D_unn2x")
+
+[node name="Problems" type="Node2D" parent="." unique_id=1264938817]
+
+[node name="problem2" parent="Problems" unique_id=1110585134 instance=ExtResource("3_h2yge")]
+position = Vector2(64, -192)
+
+[node name="problem3" parent="Problems" unique_id=64846171 instance=ExtResource("3_h2yge")]
+position = Vector2(-64, -320)
+
+[node name="problem4" parent="Problems" unique_id=1712291692 instance=ExtResource("3_h2yge")]
+position = Vector2(128, -448)
 
 [connection signal="area_entered" from="problem" to="." method="_on_problem_area_entered"]
 [connection signal="area_exited" from="problem" to="." method="_on_problem_area_exited"]
