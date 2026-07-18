@@ -3,20 +3,14 @@ extends Node
 @export var rise_distance: float = 50.0
 @export var fade_duration: float = 0.7
 
+var mod_data
+
 func _ready():
 	spawn()
 	pass
 
 func _process(delta):
 	pass
-
-func _on_area_2d_mouse_entered():
-	$EditableContainer/LoopDescription.visible = true
-	$EditableContainer.scale = Vector2(1.2, 1.2)
-
-func _on_area_2d_mouse_exited():
-	$EditableContainer/LoopDescription.visible = false
-	$EditableContainer.scale = Vector2(1.0, 1.0)
 
 func spawn():
 	# play anim of moving
@@ -34,7 +28,20 @@ func spawn():
 	# play anim of some idle like glow
 
 func init(data : Loop_Mod_Data):
-	# set sprite, description
-	$EditableContainer/Sprite2D.texture = data.image
+	mod_data = data
+	$EditableContainer/ControlTexture.texture = data.image
 	$EditableContainer/LoopDescription.text = data.description
+
+func _on_button_mouse_entered():
+	$EditableContainer/LoopDescription.visible = true
+	$EditableContainer.scale = Vector2(1.2, 1.2)
+
+func _on_button_mouse_exited():
+	$EditableContainer/LoopDescription.visible = false
+	$EditableContainer.scale = Vector2(1.0, 1.0)
+
+func _on_button_pressed():
+	QTE_Manager.set_selected_hammer_nail_mod(mod_data)
+
+func exit_anim():
 	pass

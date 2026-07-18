@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://b1unccseoro13" path="res://Scripts/UI/Thought Loops/loop_mod.gd" id="1_7f3k8"]
 [ext_resource type="Texture2D" uid="uid://bj0f5f0jn6vll" path="res://Art/Temp/temp_loop.png" id="1_vfovv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkagk"]
-size = Vector2(32, 32)
-
 [node name="LoopMod" type="Control" unique_id=1101033128]
 layout_mode = 3
 anchors_preset = 8
@@ -26,11 +23,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="EditableContainer" unique_id=446383809]
+[node name="ControlTexture" type="TextureRect" parent="EditableContainer" unique_id=2028170155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_vfovv")
+expand_mode = 2
 
 [node name="LoopDescription" type="RichTextLabel" parent="EditableContainer" unique_id=615972727]
 visible = false
@@ -50,12 +58,16 @@ text = "Description here"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MouseTriggerArea2D" type="Area2D" parent="EditableContainer" unique_id=772766875]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EditableContainer/MouseTriggerArea2D" unique_id=1030879239]
-shape = SubResource("RectangleShape2D_hkagk")
+[node name="Button" type="Button" parent="EditableContainer" unique_id=656133116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="EditableContainer/MouseTriggerArea2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="EditableContainer/MouseTriggerArea2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="EditableContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="EditableContainer/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="EditableContainer/Button" to="." method="_on_button_pressed"]
