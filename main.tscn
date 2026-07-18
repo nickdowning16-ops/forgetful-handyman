@@ -250,6 +250,7 @@ position = Vector2(128, -448)
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1978157328]
 
 [node name="MaybeAll" parent="CanvasLayer2" unique_id=963753931 instance=ExtResource("8_5vw27")]
+mouse_filter = 2
 
 [connection signal="area_entered" from="problem" to="." method="_on_problem_area_entered"]
 [connection signal="area_exited" from="problem" to="." method="_on_problem_area_exited"]

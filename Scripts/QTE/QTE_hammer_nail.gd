@@ -10,9 +10,11 @@ var time_elapsed: float = 0.0
 var has_swung: bool = false
 var base_rotation: float = 0.0
 var idle_tween: Tween
+var num_tries = 1
 
 func _ready():
 	start_idle_vibration()
+	check_for_mods()
 
 func _process(delta):
 	if has_swung:
@@ -72,5 +74,22 @@ func bad_swing():
 	tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(75), 0.12)
 	tween.tween_property($Hammer, "rotation", base_rotation + deg_to_rad(45), 0.08)
 	
-	QTE_Manager.failed_QTE()
-	
+	num_tries -= 1
+	if num_tries == 0:
+		QTE_Manager.failed_QTE()
+	else:
+		tween.kill()
+		has_swung = false
+		time_elapsed = 0
+
+
+func check_for_mods():
+	var m = QTE_Manager.selected_hammer_nail_mod
+	if m == available_modifiers[0]:
+		hit_window_start += 0.5
+		hit_window_end += 0.5
+	elif m == available_modifiers[1]:
+		num_tries += 1
+	elif m == available_modifiers[2]:
+		print("hammer nail mod needs money still") # TODO
+		pass

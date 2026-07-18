@@ -41,7 +41,7 @@ func _on_button_mouse_exited():
 	$EditableContainer.scale = Vector2(1.0, 1.0)
 
 func _on_button_pressed():
-	QTE_Manager.set_selected_hammer_nail_mod(mod_data)
+	QTE_Manager.set_selected_hammer_nail_mod(mod_data) # TODO genericize
 
 func exit_anim():
 	pass
