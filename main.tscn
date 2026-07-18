@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2lk0ne48ot70" path="res://problem.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://3a36l3jvwgn2" path="res://loop_choice.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dlivxcahg8kfs" path="res://Art/Temp/temp_barrier.png" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://gg2fa25ode7r" path="res://Scenes/hud.tscn" id="8_5vw27"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272bh"]
 texture = ExtResource("2_7mycd")
@@ -113,9 +114,11 @@ tile_set = SubResource("TileSet_paldn")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1418489147]
 offset = Vector2(32, 32)
-limit_left = -1000
-limit_top = -1000
-limit_right = 1000
+zoom = Vector2(1.75, 1.75)
+limit_left = -605
+limit_top = -715
+limit_right = 726
+limit_bottom = 367
 position_smoothing_enabled = true
 position_smoothing_speed = 0.5
 
@@ -243,6 +246,10 @@ position = Vector2(-64, -320)
 
 [node name="problem4" parent="Problems" unique_id=1712291692 instance=ExtResource("3_h2yge")]
 position = Vector2(128, -448)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1978157328]
+
+[node name="MaybeAll" parent="CanvasLayer2" unique_id=963753931 instance=ExtResource("8_5vw27")]
 
 [connection signal="area_entered" from="problem" to="." method="_on_problem_area_entered"]
 [connection signal="area_exited" from="problem" to="." method="_on_problem_area_exited"]
