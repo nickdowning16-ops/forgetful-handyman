@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://1nv3p800l0q8" path="res://Art/Task Queue/task_queue_light.png" id="2_6fbih"]
 [ext_resource type="Texture2D" uid="uid://bgf7jjskt20le" path="res://Art/Task Queue/task_queue_blank.png" id="2_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://nv846buh8gkg" path="res://Art/Task Queue/task_queue_hammer.png" id="3_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://cbbhv7woyjk20" path="res://Art/Temp/temp_hand.png" id="7_8jye8"]
+[ext_resource type="Texture2D" uid="uid://bkonad64hpmqd" path="res://Art/Temp/temp_hand_loop.png" id="8_43w4t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unn2x"]
 
 [node name="MaybeAll" type="Control" unique_id=963753931]
 layout_mode = 3
@@ -91,3 +95,86 @@ visible = false
 layout_mode = 2
 texture = ExtResource("3_t1xeu")
 expand_mode = 5
+
+[node name="Hand" type="Control" parent="." unique_id=1132079717]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+offset_right = 300.0
+grow_vertical = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Hand" unique_id=1926264851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Hand/AspectRatioContainer" unique_id=1593827567]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="Panel" type="Panel" parent="Hand/AspectRatioContainer" unique_id=1761475401]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_unn2x")
+
+[node name="Hand" type="TextureRect" parent="Hand/AspectRatioContainer" unique_id=185793954]
+layout_mode = 2
+texture = ExtResource("7_8jye8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Thumb" type="TextureRect" parent="Hand/AspectRatioContainer/Hand" unique_id=821259700]
+modulate = Color(1, 0.25, 0.25, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 166.0
+offset_right = 67.0
+offset_bottom = 231.0
+texture = ExtResource("8_43w4t")
+expand_mode = 1
+
+[node name="Pointer" type="TextureRect" parent="Hand/AspectRatioContainer/Hand" unique_id=1878330560]
+modulate = Color(0.21562502, 0.75, 0.1875, 1)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 96.0
+offset_right = 122.0
+offset_bottom = 170.0
+texture = ExtResource("8_43w4t")
+expand_mode = 1
+
+[node name="Middle" type="TextureRect" parent="Hand/AspectRatioContainer/Hand" unique_id=507882651]
+modulate = Color(0.103499986, 0.6118001, 0.69, 1)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 57.0
+offset_right = 175.0
+offset_bottom = 132.0
+texture = ExtResource("8_43w4t")
+expand_mode = 1
+
+[node name="Ring" type="TextureRect" parent="Hand/AspectRatioContainer/Hand" unique_id=1410343610]
+modulate = Color(1, 0.7783333, 0.3, 1)
+layout_mode = 0
+offset_left = 157.0
+offset_top = 99.0
+offset_right = 234.0
+offset_bottom = 176.0
+texture = ExtResource("8_43w4t")
+expand_mode = 1
+
+[node name="Pinky" type="TextureRect" parent="Hand/AspectRatioContainer/Hand" unique_id=715272748]
+modulate = Color(0.727175, 0.41650003, 0.85, 1)
+layout_mode = 0
+offset_left = 215.0
+offset_top = 150.0
+offset_right = 295.0
+offset_bottom = 230.0
+texture = ExtResource("8_43w4t")
+expand_mode = 1

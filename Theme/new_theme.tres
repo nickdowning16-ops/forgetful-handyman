@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://ind3btrktmhx"]
+
+[resource]
+Panel/colors/background_color = Color(0.13908562, 0.40221497, 0.42948636, 1)
+Panel/colors/border = Color(0.84946406, 0.9115683, 0.9689675, 1)
+Panel/colors/color = Color(1, 1, 1, 1)
