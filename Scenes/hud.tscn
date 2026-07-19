@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gg2fa25ode7r"]
 
 [ext_resource type="Texture2D" uid="uid://dwjy52xledira" path="res://Art/Task Queue/notebook.png" id="1_6fbih"]
+[ext_resource type="Script" uid="uid://c5cpjlvy5wlcy" path="res://Scripts/side_bar.gd" id="1_36asn"]
 [ext_resource type="Texture2D" uid="uid://b5iuq3ujyc78a" path="res://Art/Task Queue/task_queue_plunger.png" id="1_bjfho"]
 [ext_resource type="Texture2D" uid="uid://1nv3p800l0q8" path="res://Art/Task Queue/task_queue_light.png" id="2_6fbih"]
 [ext_resource type="Texture2D" uid="uid://bgf7jjskt20le" path="res://Art/Task Queue/task_queue_blank.png" id="2_t1xeu"]
@@ -15,7 +16,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1963457839]
+[node name="SideBar" type="Control" parent="." unique_id=151147227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_36asn")
+
+[node name="TextureRect" type="TextureRect" parent="SideBar" unique_id=1963457839]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85400003
@@ -27,56 +38,56 @@ grow_vertical = 2
 texture = ExtResource("1_6fbih")
 expand_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=541507845]
+[node name="MarginContainer" type="MarginContainer" parent="SideBar" unique_id=541507845]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.87000006
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.40014648
+offset_left = -30.400146
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_left = 22
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 22
 theme_override_constants/margin_bottom = 100
 
-[node name="BoxContainer" type="BoxContainer" parent="MarginContainer" unique_id=1324836554]
+[node name="BoxContainer" type="BoxContainer" parent="SideBar/MarginContainer" unique_id=1324836554]
 layout_mode = 2
 theme_override_constants/separation = 14
 alignment = 2
 vertical = true
 
-[node name="Placeholder1" type="TextureRect" parent="MarginContainer/BoxContainer" unique_id=1933324159]
-visible = false
+[node name="Placeholder3" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=651511368]
 layout_mode = 2
 texture = ExtResource("2_t1xeu")
 expand_mode = 5
 
-[node name="Placeholder2" type="TextureRect" parent="MarginContainer/BoxContainer" unique_id=815678802]
-visible = false
+[node name="Placeholder2" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=815678802]
 layout_mode = 2
 texture = ExtResource("2_t1xeu")
 expand_mode = 5
 
-[node name="Placeholder3" type="TextureRect" parent="MarginContainer/BoxContainer" unique_id=651511368]
-visible = false
+[node name="Placeholder1" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=1933324159]
 layout_mode = 2
 texture = ExtResource("2_t1xeu")
 expand_mode = 5
 
-[node name="TexturePlungerRect6" type="TextureRect" parent="MarginContainer/BoxContainer" unique_id=2106685325]
+[node name="TexturePlungerRect6" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=2106685325]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_bjfho")
 expand_mode = 5
 
-[node name="Light" type="TextureRect" parent="MarginContainer/BoxContainer" unique_id=640276273]
+[node name="Light" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=640276273]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_6fbih")
 expand_mode = 5
 
-[node name="Hammer" type="TextureRect" parent="MarginContainer/BoxContainer" unique_id=927323523]
+[node name="Hammer" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=927323523]
+visible = false
 layout_mode = 2
 texture = ExtResource("3_t1xeu")
 expand_mode = 5
