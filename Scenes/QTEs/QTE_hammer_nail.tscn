@@ -7,6 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://wo3yly2reko5" path="res://Art/Temp/temp_nail.png" id="3_s5qad"]
 [ext_resource type="Resource" uid="uid://b7c6qmdg4ex86" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod2.tres" id="4_6jwhv"]
 [ext_resource type="Resource" uid="uid://chjh5ttw4ejf4" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod3.tres" id="5_m5out"]
+[ext_resource type="Texture2D" uid="uid://bn4ax0ug4ijr8" path="res://Art/QTEs/Hammer and Nail/hn_wrist.png" id="8_glvsy"]
+[ext_resource type="Texture2D" uid="uid://dukag7rj82yf2" path="res://Art/QTEs/Hammer and Nail/hn_hand.png" id="9_qo2vg"]
+[ext_resource type="Texture2D" uid="uid://cjvjsae57l5t2" path="res://Art/QTEs/Hammer and Nail/hn_hammer.png" id="10_wtxhb"]
+[ext_resource type="Texture2D" uid="uid://cxe3jyfrg0jhb" path="res://Art/QTEs/Hammer and Nail/hn_frame.png" id="11_bggkp"]
+[ext_resource type="Texture2D" uid="uid://c8moukp5vdp8x" path="res://Art/QTEs/Hammer and Nail/hn_george.png" id="12_k5qa3"]
+[ext_resource type="Texture2D" uid="uid://b424b7cti1fmb" path="res://Art/QTEs/Hammer and Nail/hn_poo.png" id="13_ue08g"]
+[ext_resource type="Texture2D" uid="uid://devk5m6vxbvg5" path="res://Art/QTEs/Hammer and Nail/hn_sbob.png" id="14_y7qth"]
+[ext_resource type="Texture2D" uid="uid://bldl58iwxjqu8" path="res://Art/QTEs/Hammer and Nail/hn_happy.png" id="15_lfb6c"]
+[ext_resource type="Texture2D" uid="uid://b3gt2ytuc7tuu" path="res://Art/QTEs/Hammer and Nail/hn_arm.png" id="16_oni0q"]
+[ext_resource type="Texture2D" uid="uid://dacy0stg52fh" path="res://Art/QTEs/Hammer and Nail/hn_nail.png" id="17_qo2vg"]
 
 [node name="QteHammerNail" type="Control" unique_id=1883862197]
 layout_mode = 3
@@ -18,23 +28,163 @@ grow_vertical = 2
 script = ExtResource("1_eg3fw")
 available_modifiers = Array[ExtResource("2_1kltl")]([ExtResource("3_fhkxh"), ExtResource("4_6jwhv"), ExtResource("5_m5out")])
 
-[node name="Hammer" type="Control" parent="." unique_id=1095469928]
+[node name="tempHammer" type="Control" parent="." unique_id=1095469928]
+visible = false
 anchors_preset = 0
 offset_left = 916.0
 offset_top = 470.0
 offset_right = 956.0
 offset_bottom = 510.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Hammer" unique_id=1409099744]
+[node name="Sprite2D" type="Sprite2D" parent="tempHammer" unique_id=1409099744]
 texture = ExtResource("2_ell1r")
 
-[node name="Nail" type="Control" parent="." unique_id=2111299561]
+[node name="tempNail" type="Control" parent="." unique_id=2111299561]
+visible = false
 anchors_preset = 0
 offset_left = 1100.0
 offset_top = 416.0
 offset_right = 1140.0
 offset_bottom = 456.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Nail" unique_id=1225902355]
+[node name="Sprite2D" type="Sprite2D" parent="tempNail" unique_id=1225902355]
 rotation = -1.5707964
 texture = ExtResource("3_s5qad")
+
+[node name="HammerHand" type="Control" parent="." unique_id=1087957603]
+anchors_preset = 0
+offset_left = 526.0
+offset_top = 234.0
+offset_right = 566.0
+offset_bottom = 274.0
+
+[node name="Forearm" type="Control" parent="HammerHand" unique_id=908076823]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HammerHand/Forearm" unique_id=602328276]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 149.0
+offset_right = 173.0
+offset_bottom = 405.0
+texture = ExtResource("8_glvsy")
+
+[node name="Hand" type="Control" parent="HammerHand" unique_id=112016594]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0035086935
+pivot_offset = Vector2(132.73, 178.195)
+
+[node name="TextureRect" type="TextureRect" parent="HammerHand/Hand" unique_id=595770099]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_qo2vg")
+
+[node name="Hammer" type="Control" parent="HammerHand/Hand" unique_id=1962910052]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.62439
+offset_top = -19.533188
+offset_right = 19.37561
+offset_bottom = 20.466812
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0035086935
+
+[node name="TextureRect" type="TextureRect" parent="HammerHand/Hand/Hammer" unique_id=428148812]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_wtxhb")
+
+[node name="Frame" type="Control" parent="." unique_id=1786187998]
+anchors_preset = 0
+offset_left = 1054.0
+offset_top = 254.0
+offset_right = 1094.0
+offset_bottom = 294.0
+
+[node name="FrameTexture" type="TextureRect" parent="Frame" unique_id=1261935987]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_bggkp")
+
+[node name="FrameImage1" type="TextureRect" parent="Frame" unique_id=1001462521]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_k5qa3")
+
+[node name="FrameImage2" type="TextureRect" parent="Frame" unique_id=1528858639]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_ue08g")
+
+[node name="FrameImage3" type="TextureRect" parent="Frame" unique_id=1196463270]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_y7qth")
+
+[node name="FrameImage4" type="TextureRect" parent="Frame" unique_id=198718326]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_lfb6c")
+
+[node name="Arm" type="Control" parent="." unique_id=730115943]
+anchors_preset = 0
+offset_left = 958.0
+offset_top = 458.0
+offset_right = 998.0
+offset_bottom = 498.0
+
+[node name="TextureRect" type="TextureRect" parent="Arm" unique_id=1749434780]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_oni0q")
+
+[node name="Nail" type="Control" parent="." unique_id=216425931]
+anchors_preset = 0
+offset_left = 1159.0
+offset_top = 242.0
+offset_right = 1199.0
+offset_bottom = 282.0
+
+[node name="TextureRect" type="TextureRect" parent="Nail" unique_id=1580406610]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_qo2vg")

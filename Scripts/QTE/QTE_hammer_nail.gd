@@ -23,7 +23,7 @@ func _process(delta):
 	time_elapsed += delta
 	
 	if time_elapsed >= hit_window_start and time_elapsed <= hit_window_end:
-		$Hammer/Sprite2D.modulate = Color(0.5, 1.5, 0.5)
+		$Hammer/Sprite2D.modulate = Color(0.5, 1.5, 0.5) # TODO change to texture
 	else:
 		$Hammer/Sprite2D.modulate = Color(1,1,1)
 	
