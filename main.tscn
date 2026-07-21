@@ -180,8 +180,6 @@ texture = ExtResource("2_0xm2m")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_hkagk")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1453521401]
-
 [node name="RoomCovers" type="Node2D" parent="." unique_id=155322549]
 visible = false
 
@@ -282,6 +280,8 @@ position = Vector2(128, -448)
 
 [node name="MaybeAll" parent="CanvasLayer2" unique_id=963753931 instance=ExtResource("8_5vw27")]
 mouse_filter = 2
+
+[node name="QTECanvasLayer" type="CanvasLayer" parent="." unique_id=1453521401]
 
 [connection signal="area_entered" from="problem" to="." method="_on_problem_area_entered"]
 [connection signal="area_exited" from="problem" to="." method="_on_problem_area_exited"]

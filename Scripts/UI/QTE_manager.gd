@@ -50,12 +50,15 @@ func open_QTE(parentUI):
 	QTE_inst.get_event_container().add_child(temp_QTE.instantiate())
 
 func passed_QTE():
-	print("you passed... thats it")
+	await get_tree().create_timer(1).timeout
+	QTE_inst.end(true)
 	await get_tree().create_timer(3).timeout
 	complete_QTE()
 	pass
 
 func failed_QTE():
+	await get_tree().create_timer(1).timeout
+	QTE_inst.end(false)
 	await get_tree().create_timer(3).timeout
 	Game_Manager.lose_life()
 	complete_QTE()

@@ -19,7 +19,7 @@ script = ExtResource("1_s4v3x")
 
 [node name="BackgroundPanel" type="Panel" parent="." unique_id=2080182557]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -31,61 +31,21 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = 100.0
-offset_right = -200.0
-offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WindowVBoxContainer" type="VBoxContainer" parent="BackgroundPanel/WindowPanel" unique_id=342949005]
+[node name="LowerWindow" type="Panel" parent="BackgroundPanel/WindowPanel" unique_id=720894321]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="UpperWindow" type="Panel" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer" unique_id=914970449]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 4.5
 
-[node name="UpperVBoxContainer" type="VBoxContainer" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow" unique_id=1423588864]
-propagate_maximum_size = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="QTEDescription" type="RichTextLabel" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow/UpperVBoxContainer" unique_id=304043937]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 42
-text = "QTE Description Placeholder"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimeBar" type="TextureProgressBar" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/UpperWindow/UpperVBoxContainer" unique_id=1384953004]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-value = 40.0
-nine_patch_stretch = true
-texture_progress = SubResource("PlaceholderTexture2D_qj0j0")
-tint_under = Color(0, 0, 1, 1)
-tint_over = Color(1, 0, 0, 1)
-tint_progress = Color(0, 1, 0, 1)
-
-[node name="LowerWindow" type="Panel" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer" unique_id=720894321]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="CheatButton" type="Button" parent="BackgroundPanel/WindowPanel/WindowVBoxContainer/LowerWindow" unique_id=633718001]
+[node name="CheatButton" type="Button" parent="BackgroundPanel/WindowPanel/LowerWindow" unique_id=633718001]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -100,4 +60,96 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "cheat"
 
-[connection signal="pressed" from="BackgroundPanel/WindowPanel/WindowVBoxContainer/LowerWindow/CheatButton" to="." method="_on_cheat_button_pressed"]
+[node name="UpperWindow" type="Panel" parent="BackgroundPanel/WindowPanel" unique_id=914970449]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 195.0
+grow_horizontal = 2
+size_flags_vertical = 3
+
+[node name="UpperVBoxContainer" type="VBoxContainer" parent="BackgroundPanel/WindowPanel/UpperWindow" unique_id=1423588864]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QTEDescription" type="RichTextLabel" parent="BackgroundPanel/WindowPanel/UpperWindow/UpperVBoxContainer" unique_id=304043937]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 42
+text = "QTE Description Placeholder"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBar" type="TextureProgressBar" parent="BackgroundPanel/WindowPanel/UpperWindow/UpperVBoxContainer" unique_id=1384953004]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+value = 40.0
+nine_patch_stretch = true
+texture_progress = SubResource("PlaceholderTexture2D_qj0j0")
+tint_under = Color(0, 0, 1, 1)
+tint_over = Color(1, 0, 0, 1)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="FailBox" type="Panel" parent="BackgroundPanel/WindowPanel" unique_id=2038139594]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 300.0
+offset_right = -300.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BackgroundPanel/WindowPanel/FailBox" unique_id=218103116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 98
+text = "FAIL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PassBox" type="Panel" parent="BackgroundPanel/WindowPanel" unique_id=1601922705]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 300.0
+offset_right = -300.0
+offset_bottom = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="BackgroundPanel/WindowPanel/PassBox" unique_id=332245798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 98
+text = "Pass"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BackgroundPanel/WindowPanel/LowerWindow/CheatButton" to="." method="_on_cheat_button_pressed"]

@@ -25,8 +25,7 @@ func _on_problem_area_exited(area: Area2D) -> void:
 	in_area = false
 
 func _on_qte_spawner_area_entered(area):
-	print("hi")
-	QTE_Manager.open_QTE($CanvasLayer)
+	QTE_Manager.open_QTE($QTECanvasLayer)
 
 func _on_front_area_entered(area: Area2D) -> void:
 	$RoomCovers/Front.hide()

@@ -2,61 +2,417 @@
 
 [ext_resource type="Script" uid="uid://d1grofkn7g6k3" path="res://Scripts/QTE/QTE_hammer_nail.gd" id="1_eg3fw"]
 [ext_resource type="Script" uid="uid://cyw717emy577f" path="res://Scripts/UI/Thought Loops/loop_mod_data.gd" id="2_1kltl"]
-[ext_resource type="Texture2D" uid="uid://bqw7e5q8ruhv2" path="res://Art/Temp/temp_hammer.png" id="2_ell1r"]
 [ext_resource type="Resource" uid="uid://dewb3vdvdy0wc" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod1.tres" id="3_fhkxh"]
-[ext_resource type="Texture2D" uid="uid://wo3yly2reko5" path="res://Art/Temp/temp_nail.png" id="3_s5qad"]
 [ext_resource type="Resource" uid="uid://b7c6qmdg4ex86" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod2.tres" id="4_6jwhv"]
 [ext_resource type="Resource" uid="uid://chjh5ttw4ejf4" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod3.tres" id="5_m5out"]
 [ext_resource type="Texture2D" uid="uid://bn4ax0ug4ijr8" path="res://Art/QTEs/Hammer and Nail/hn_wrist.png" id="8_glvsy"]
 [ext_resource type="Texture2D" uid="uid://dukag7rj82yf2" path="res://Art/QTEs/Hammer and Nail/hn_hand.png" id="9_qo2vg"]
 [ext_resource type="Texture2D" uid="uid://cjvjsae57l5t2" path="res://Art/QTEs/Hammer and Nail/hn_hammer.png" id="10_wtxhb"]
 [ext_resource type="Texture2D" uid="uid://cxe3jyfrg0jhb" path="res://Art/QTEs/Hammer and Nail/hn_frame.png" id="11_bggkp"]
+[ext_resource type="Texture2D" uid="uid://du2uu3swjjy2f" path="res://Art/QTEs/Hammer and Nail/hn_glass_crack.png" id="11_k5qa3"]
 [ext_resource type="Texture2D" uid="uid://c8moukp5vdp8x" path="res://Art/QTEs/Hammer and Nail/hn_george.png" id="12_k5qa3"]
+[ext_resource type="Texture2D" uid="uid://bsvk3istqvg7i" path="res://Art/QTEs/circle_gradient.png" id="12_wtxhb"]
+[ext_resource type="Texture2D" uid="uid://bfx15ox1vxmm" path="res://Art/QTEs/star.png" id="13_bggkp"]
 [ext_resource type="Texture2D" uid="uid://b424b7cti1fmb" path="res://Art/QTEs/Hammer and Nail/hn_poo.png" id="13_ue08g"]
+[ext_resource type="Texture2D" uid="uid://bawcs8mo0to0o" path="res://Art/QTEs/bar_gradient.png" id="14_k5qa3"]
 [ext_resource type="Texture2D" uid="uid://devk5m6vxbvg5" path="res://Art/QTEs/Hammer and Nail/hn_sbob.png" id="14_y7qth"]
 [ext_resource type="Texture2D" uid="uid://bldl58iwxjqu8" path="res://Art/QTEs/Hammer and Nail/hn_happy.png" id="15_lfb6c"]
 [ext_resource type="Texture2D" uid="uid://b3gt2ytuc7tuu" path="res://Art/QTEs/Hammer and Nail/hn_arm.png" id="16_oni0q"]
+[ext_resource type="Texture2D" uid="uid://bngpw1oaeojqn" path="res://Art/QTEs/glass_shard.png" id="16_ue08g"]
 [ext_resource type="Texture2D" uid="uid://dacy0stg52fh" path="res://Art/QTEs/Hammer and Nail/hn_nail.png" id="17_qo2vg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hkagk"]
+
+[sub_resource type="Curve" id="Curve_hkagk"]
+_limits = [0.0, 25.0, 0.0, 1.0]
+_data = [Vector2(0.1830986, 0.1460675), 0.0, 0.0, 0, 0, Vector2(0.32394367, 9.831461), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_yolud"]
+offsets = PackedFloat32Array(0, 0.37433156, 1)
+colors = PackedColorArray(1, 1, 0, 0.17254902, 1, 1, 0.95721924, 0.007381782, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_hkagk"]
+offsets = PackedFloat32Array(0, 0.122994654)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_ypred"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5070423, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_magek"]
+_limits = [0.0, 94.94, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7230047, 82.1391), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_nwwar"]
+offsets = PackedFloat32Array(0, 0.18181819)
+colors = PackedColorArray(1, 1, 0, 0.6431373, 1, 1, 0, 0)
+
+[sub_resource type="Animation" id="Animation_ajerh"]
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HammerHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HammerHand/Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HammerHand:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(361, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HammerHand:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(226, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_glvsy"]
+resource_name = "swing_hammer"
+length = 0.40344697
+step = 60.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HammerHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.36221215, -0.16666667, -0.060368694, 0, 0),
+"times": PackedFloat32Array(0, 0.40094233)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HammerHand/Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.3464138, -0.16666667, -0.057735633, 0, 0),
+"times": PackedFloat32Array(0, 0.40094233)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HammerHand:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(361, -0.25, 0, 0.56645584, 179, 503, -0.16666667, -23.666668, 0, 0),
+"times": PackedFloat32Array(0, 0.40094233)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HammerHand:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(226, -0.25, 0, 0.25, 0, 197, -0.16666667, 4.8333335, 0, 0),
+"times": PackedFloat32Array(0, 0.40094233)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qo2vg"]
+_data = {
+&"RESET": SubResource("Animation_ajerh"),
+&"swing_hammer": SubResource("Animation_glvsy")
+}
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yolud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_magek"]
+bg_color = Color(0.15728459, 0.71963984, 0.20212719, 1)
 
 [node name="QteHammerNail" type="Control" unique_id=1883862197]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 148.0
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("1_eg3fw")
 available_modifiers = Array[ExtResource("2_1kltl")]([ExtResource("3_fhkxh"), ExtResource("4_6jwhv"), ExtResource("5_m5out")])
+metadata/_edit_use_anchors_ = true
 
-[node name="tempHammer" type="Control" parent="." unique_id=1095469928]
+[node name="guidelines" type="Control" parent="." unique_id=963674269]
 visible = false
-anchors_preset = 0
-offset_left = 916.0
-offset_top = 470.0
-offset_right = 956.0
-offset_bottom = 510.0
+clip_contents = true
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="tempHammer" unique_id=1409099744]
-texture = ExtResource("2_ell1r")
+[node name="TextureRect" type="TextureRect" parent="guidelines" unique_id=611085386]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -540.0
+offset_right = 7.5
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_hkagk")
+expand_mode = 4
 
-[node name="tempNail" type="Control" parent="." unique_id=2111299561]
+[node name="guidelines2" type="Control" parent="." unique_id=274844808]
 visible = false
-anchors_preset = 0
-offset_left = 1100.0
-offset_top = 416.0
-offset_right = 1140.0
-offset_bottom = 456.0
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="tempNail" unique_id=1225902355]
-rotation = -1.5707964
-texture = ExtResource("3_s5qad")
+[node name="TextureRect" type="TextureRect" parent="guidelines2" unique_id=378442002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -7.5
+offset_right = 960.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_hkagk")
+expand_mode = 2
+
+[node name="Frame" type="Control" parent="." unique_id=1786187998]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -244.0
+offset_right = 14.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FrameTexture" type="TextureRect" parent="Frame" unique_id=1261935987]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("11_bggkp")
+
+[node name="FrameImage1" type="TextureRect" parent="Frame" unique_id=1001462521]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("12_k5qa3")
+
+[node name="FrameImage2" type="TextureRect" parent="Frame" unique_id=1528858639]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("13_ue08g")
+
+[node name="FrameImage3" type="TextureRect" parent="Frame" unique_id=1196463270]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("14_y7qth")
+
+[node name="FrameImage4" type="TextureRect" parent="Frame" unique_id=198718326]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("15_lfb6c")
+
+[node name="FrameImage5" type="TextureRect" parent="Frame" unique_id=644528289]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("11_k5qa3")
+
+[node name="Nail" type="Control" parent="." unique_id=216425931]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 185.0
+offset_top = -271.0
+offset_right = 225.0
+offset_bottom = -231.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Nail" unique_id=1580406610]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("17_qo2vg")
+
+[node name="Particles" type="Control" parent="Nail" unique_id=111056901]
+anchors_preset = 0
+offset_left = -3.0
+offset_top = 22.0
+offset_right = 37.0
+offset_bottom = 62.0
+
+[node name="RingParticle" type="CPUParticles2D" parent="Nail/Particles" unique_id=1481384694]
+position = Vector2(20, 20)
+emitting = false
+amount = 1
+texture = ExtResource("12_wtxhb")
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_yolud")
+
+[node name="StarsParticle" type="CPUParticles2D" parent="Nail/Particles" unique_id=686912694]
+position = Vector2(20, 20)
+emitting = false
+texture = ExtResource("13_bggkp")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+angular_velocity_min = 10.0
+angular_velocity_max = 50.0
+damping_min = 5.0
+damping_max = 10.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_hkagk")
+
+[node name="BarsParticle" type="CPUParticles2D" parent="Nail/Particles" unique_id=312849096]
+position = Vector2(20, 20)
+emitting = false
+texture = ExtResource("14_k5qa3")
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+angle_min = -720.0
+angle_max = 885.5
+split_scale = true
+scale_curve_x = SubResource("Curve_ypred")
+scale_curve_y = SubResource("Curve_magek")
+color_ramp = SubResource("Gradient_nwwar")
+
+[node name="GlassParticle" type="CPUParticles2D" parent="Nail/Particles" unique_id=1418939914]
+position = Vector2(-64, 142)
+emitting = false
+texture = ExtResource("16_ue08g")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.95
+spread = 180.0
+initial_velocity_min = 295.79
+initial_velocity_max = 499.33
+linear_accel_min = 26.55
+linear_accel_max = 26.55
+radial_accel_min = -49.56
+radial_accel_max = 39.29
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+color = Color(1, 1, 1, 0.5803922)
+
+[node name="Arm" type="Control" parent="." unique_id=730115943]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 87.0
+offset_top = -333.0
+offset_right = 127.0
+offset_bottom = -293.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Arm" unique_id=1749434780]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("16_oni0q")
 
 [node name="HammerHand" type="Control" parent="." unique_id=1087957603]
-anchors_preset = 0
-offset_left = 526.0
-offset_top = 234.0
-offset_right = 566.0
-offset_bottom = 274.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.0
+offset_top = -314.0
+offset_right = -558.9915
+offset_bottom = -274.00006
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(62.33, 515.125)
 
 [node name="Forearm" type="Control" parent="HammerHand" unique_id=908076823]
 layout_mode = 1
@@ -71,13 +427,15 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(44.245, 533.41)
 
 [node name="TextureRect" type="TextureRect" parent="HammerHand/Forearm" unique_id=602328276]
 layout_mode = 0
-offset_left = -83.0
-offset_top = 149.0
-offset_right = 173.0
-offset_bottom = 405.0
+offset_left = -73.0
+offset_top = 123.0
+offset_right = 183.0
+offset_bottom = 379.0
+scale = Vector2(2, 2)
 texture = ExtResource("8_glvsy")
 
 [node name="Hand" type="Control" parent="HammerHand" unique_id=112016594]
@@ -87,19 +445,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = 54.0
+offset_top = -151.0
+offset_right = 94.0
+offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0035086935
-pivot_offset = Vector2(132.73, 178.195)
+pivot_offset = Vector2(247.63, 360.795)
 
 [node name="TextureRect" type="TextureRect" parent="HammerHand/Hand" unique_id=595770099]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(2, 2)
 texture = ExtResource("9_qo2vg")
 
 [node name="Hammer" type="Control" parent="HammerHand/Hand" unique_id=1962910052]
@@ -121,70 +479,28 @@ rotation = 0.0035086935
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(2, 2)
 texture = ExtResource("10_wtxhb")
 
-[node name="Frame" type="Control" parent="." unique_id=1786187998]
-anchors_preset = 0
-offset_left = 1054.0
-offset_top = 254.0
-offset_right = 1094.0
-offset_bottom = 294.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HammerHand" unique_id=128072528]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_qo2vg")
 
-[node name="FrameTexture" type="TextureRect" parent="Frame" unique_id=1261935987]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("11_bggkp")
-
-[node name="FrameImage1" type="TextureRect" parent="Frame" unique_id=1001462521]
+[node name="PowerSlider" type="HSlider" parent="." unique_id=509498739]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("12_k5qa3")
-
-[node name="FrameImage2" type="TextureRect" parent="Frame" unique_id=1528858639]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("13_ue08g")
-
-[node name="FrameImage3" type="TextureRect" parent="Frame" unique_id=1196463270]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("14_y7qth")
-
-[node name="FrameImage4" type="TextureRect" parent="Frame" unique_id=198718326]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("15_lfb6c")
-
-[node name="Arm" type="Control" parent="." unique_id=730115943]
-anchors_preset = 0
-offset_left = 958.0
-offset_top = 458.0
-offset_right = 998.0
-offset_bottom = 498.0
-
-[node name="TextureRect" type="TextureRect" parent="Arm" unique_id=1749434780]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("16_oni0q")
-
-[node name="Nail" type="Control" parent="." unique_id=216425931]
-anchors_preset = 0
-offset_left = 1159.0
-offset_top = 242.0
-offset_right = 1199.0
-offset_bottom = 282.0
-
-[node name="TextureRect" type="TextureRect" parent="Nail" unique_id=1580406610]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("17_qo2vg")
+custom_minimum_size = Vector2(750, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = 266.0
+offset_right = 375.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_yolud")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_magek")
+value = 33.0
