@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://8h84f3t6001u"]
+
+[ext_resource type="Texture2D" uid="uid://4hykg2j2hstb" path="res://Art/QTEs/Toilet/QTE_toilet.png" id="1_1bmsg"]
+[ext_resource type="Script" uid="uid://di3yfpmk37eb8" path="res://Scenes/QTEs/qte_toilet.gd" id="1_hphe7"]
+[ext_resource type="Texture2D" uid="uid://cdijr2w8hgtp5" path="res://Art/QTEs/Toilet/QTE_plunger.png" id="1_hv6kw"]
+[ext_resource type="Script" uid="uid://nt7ycrclhr51" path="res://Scenes/QTEs/plunger_area.gd" id="2_e14yh"]
+[ext_resource type="Texture2D" uid="uid://c26hgrx54if4j" path="res://Art/QTEs/Toilet/bathroom.png" id="2_xkcx3"]
+[ext_resource type="Texture2D" uid="uid://bsn375pmmp5iw" path="res://Art/QTEs/Toilet/QTE_toiletFront.png" id="3_e14yh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paldn"]
+size = Vector2(138.00024, 250.12506)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unn2x"]
+size = Vector2(396, 118)
+
+[node name="Toilet" type="Control" unique_id=541543280]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hphe7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=422433176]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_xkcx3")
+
+[node name="ToiletFull" type="TextureRect" parent="." unique_id=1156966541]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 298.99997
+offset_right = 1096.0
+offset_bottom = 636.0
+scale = Vector2(1.78, 1.78)
+texture = ExtResource("1_1bmsg")
+expand_mode = 1
+
+[node name="PlungerArea" type="Area2D" parent="." unique_id=1582747562]
+position = Vector2(913, 260)
+script = ExtResource("2_e14yh")
+left_bound = 875
+right_bound = 941
+top_bound = 220
+bottom_bound = 625
+
+[node name="Plunger2" type="Sprite2D" parent="PlungerArea" unique_id=1567480855]
+scale = Vector2(1.623188, 1.623188)
+texture = ExtResource("1_hv6kw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlungerArea" unique_id=670628453]
+scale = Vector2(1.6231874, 1.6231874)
+shape = SubResource("RectangleShape2D_paldn")
+
+[node name="Button" type="Button" parent="PlungerArea" unique_id=754321694]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -203.0
+offset_right = 112.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[node name="Plunger" type="TextureRect" parent="." unique_id=759073326]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 815.0
+offset_top = 93.0
+offset_right = 953.0
+offset_bottom = 342.99994
+scale = Vector2(1.78, 1.78)
+texture = ExtResource("1_hv6kw")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Plunger" unique_id=1575596803]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToiletFront" type="TextureRect" parent="." unique_id=1934363414]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 298.99997
+offset_right = 1096.0
+offset_bottom = 636.0
+scale = Vector2(1.78, 1.78)
+mouse_filter = 2
+texture = ExtResource("3_e14yh")
+expand_mode = 1
+
+[node name="TopPlunge" type="Area2D" parent="." unique_id=1380288667]
+unique_name_in_owner = true
+visible = false
+position = Vector2(904, 91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPlunge" unique_id=2007504836]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_unn2x")
+
+[node name="BottomPlunge" type="Area2D" parent="." unique_id=269815127]
+unique_name_in_owner = true
+visible = false
+position = Vector2(918, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPlunge" unique_id=1408339131]
+shape = SubResource("RectangleShape2D_unn2x")
+
+[node name="flush" type="Button" parent="." unique_id=1545008252]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 571.0
+offset_right = 621.0
+offset_bottom = 658.0
+theme_override_font_sizes/font_size = 58
+text = "flush it homie"
+
+[connection signal="button_down" from="PlungerArea/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="PlungerArea/Button" to="PlungerArea" method="_on_button_button_down"]
+[connection signal="button_up" from="PlungerArea/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="PlungerArea/Button" to="PlungerArea" method="_on_button_button_up"]
+[connection signal="area_entered" from="TopPlunge" to="." method="_on_top_plunge_area_entered"]
+[connection signal="area_entered" from="BottomPlunge" to="." method="_on_bottom_plunge_area_entered"]
+[connection signal="pressed" from="flush" to="." method="_on_flush_pressed"]
