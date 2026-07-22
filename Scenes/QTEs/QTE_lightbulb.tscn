@@ -1,0 +1,267 @@
+[gd_scene format=3 uid="uid://stxiedm7ojvu"]
+
+[ext_resource type="Texture2D" uid="uid://1up1xyy2nbpk" path="res://Art/QTEs/Lightbulb/lightbulb_base.png" id="1_265qq"]
+[ext_resource type="Script" uid="uid://e3vnbwe3ouuo" path="res://Scripts/QTE/QTE_lightbulb.gd" id="1_oh2q0"]
+[ext_resource type="Texture2D" uid="uid://d15ymfbylem6h" path="res://Art/QTEs/Lightbulb/lightbulb_off.png" id="2_oh2q0"]
+[ext_resource type="Texture2D" uid="uid://haaqfme45cfr" path="res://Art/QTEs/Lightbulb/lightbulb_on.png" id="3_ncel0"]
+[ext_resource type="Texture2D" uid="uid://8kxbtlomxh83" path="res://Art/QTEs/Lightbulb/lightbulb_socket.png" id="4_uflcn"]
+[ext_resource type="Texture2D" uid="uid://diykqrct2oicl" path="res://Art/QTEs/circle_gradient2.png" id="5_ncel0"]
+
+[sub_resource type="Gradient" id="Gradient_oh2q0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_330im"]
+gradient = SubResource("Gradient_oh2q0")
+
+[sub_resource type="Curve" id="Curve_hkagk"]
+_data = [Vector2(0.0140845105, 0.20224726), 0.0, 0.0, 0, 0, Vector2(0.50234747, 0.20224726), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qj0j0"]
+offsets = PackedFloat32Array(0.24064171, 1)
+colors = PackedColorArray(0.20392157, 0.20392157, 0.20392157, 1, 0.20392157, 0.20392157, 0.20392157, 0)
+
+[node name="QteLightbulb" type="Control" unique_id=475218649]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oh2q0")
+
+[node name="Lightbulb" type="Control" parent="." unique_id=1103786609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -93.0
+offset_right = -210.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="LightbulbStemTexture" type="TextureRect" parent="Lightbulb" unique_id=1310500327]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_265qq")
+
+[node name="LightbulbOffTexture" type="TextureRect" parent="Lightbulb" unique_id=58395148]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_oh2q0")
+
+[node name="LightbulbOnTexture" type="TextureRect" parent="Lightbulb" unique_id=95446832]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ncel0")
+
+[node name="TextureRect" type="TextureRect" parent="Lightbulb/LightbulbOnTexture" unique_id=1243490753]
+self_modulate = Color(1, 1, 0.6156863, 0.41960785)
+layout_mode = 0
+offset_left = -213.00002
+offset_top = -130.00002
+offset_right = -149.00002
+offset_bottom = -66.000015
+scale = Vector2(14.747936, 14.747936)
+texture = ExtResource("5_ncel0")
+
+[node name="LeftGrip" type="Control" parent="Lightbulb" unique_id=285510017]
+anchors_preset = 0
+offset_left = 85.0
+offset_top = 205.0
+offset_right = 164.91
+offset_bottom = 448.25
+
+[node name="TextureRectDebug" type="TextureRect" parent="Lightbulb/LeftGrip" unique_id=1378847625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightGrip" type="Control" parent="Lightbulb" unique_id=208279817]
+anchors_preset = 0
+offset_left = 344.0
+offset_top = 205.0
+offset_right = 423.91
+offset_bottom = 448.25
+
+[node name="TextureRectDebug" type="TextureRect" parent="Lightbulb/RightGrip" unique_id=771057890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CPUParticles2D-RM" type="CPUParticles2D" parent="Lightbulb" unique_id=111663841]
+position = Vector2(260, 84)
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_330im")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(100, 0)
+emission_normals = PackedVector2Array(1, 0)
+emission_colors = PackedColorArray()
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.38
+initial_velocity_max = 415.38
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_qj0j0")
+
+[node name="CPUParticles2D-RU" type="CPUParticles2D" parent="Lightbulb" unique_id=835235097]
+position = Vector2(260, 83)
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_330im")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(100, 0)
+emission_normals = PackedVector2Array(1, 0)
+emission_colors = PackedColorArray()
+direction = Vector2(1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.38
+initial_velocity_max = 415.38
+angle_min = -144.0
+angle_max = -144.0
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_qj0j0")
+
+[node name="CPUParticles2D-RL" type="CPUParticles2D" parent="Lightbulb" unique_id=1678813936]
+position = Vector2(260, 83)
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_330im")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(100, 0)
+emission_normals = PackedVector2Array(1, 0)
+emission_colors = PackedColorArray()
+direction = Vector2(1, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.38
+initial_velocity_max = 415.38
+angle_min = -40.8
+angle_max = -40.8
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_qj0j0")
+
+[node name="CPUParticles2D-LM" type="CPUParticles2D" parent="Lightbulb" unique_id=711365069]
+position = Vector2(260, 84)
+rotation = 3.141427
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_330im")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(100, 0)
+emission_normals = PackedVector2Array(1, 0)
+emission_colors = PackedColorArray()
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.38
+initial_velocity_max = 415.38
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_qj0j0")
+
+[node name="CPUParticles2D-LU" type="CPUParticles2D" parent="Lightbulb" unique_id=530620998]
+position = Vector2(260, 83)
+rotation = 3.141427
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_330im")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(100, 0)
+emission_normals = PackedVector2Array(1, 0)
+emission_colors = PackedColorArray()
+direction = Vector2(1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.38
+initial_velocity_max = 415.38
+angle_min = -144.0
+angle_max = -144.0
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_qj0j0")
+
+[node name="CPUParticles2D-LL" type="CPUParticles2D" parent="Lightbulb" unique_id=73707644]
+position = Vector2(260, 83)
+rotation = 3.141427
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_330im")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+emission_shape = 5
+emission_points = PackedVector2Array(100, 0)
+emission_normals = PackedVector2Array(1, 0)
+emission_colors = PackedColorArray()
+direction = Vector2(1, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.38
+initial_velocity_max = 415.38
+angle_min = -40.8
+angle_max = -40.8
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_hkagk")
+color_ramp = SubResource("Gradient_qj0j0")
+
+[node name="LightbulbSocket" type="Control" parent="." unique_id=1715734078]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -330.0
+offset_right = -210.0
+offset_bottom = -290.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="LightbulbSocketTexture" type="TextureRect" parent="LightbulbSocket" unique_id=609076924]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_uflcn")
