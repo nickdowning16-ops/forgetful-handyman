@@ -10,6 +10,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paldn"]
 size = Vector2(138.00024, 250.12506)
 
+[sub_resource type="Gradient" id="Gradient_d87nq"]
+offsets = PackedFloat32Array(0.4784946, 1)
+colors = PackedColorArray(0.34780002, 0.51558995, 0.94, 1, 0, 0.26349998, 0.93, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unn2x"]
 size = Vector2(396, 118)
 
@@ -88,6 +92,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Splash" type="CPUParticles2D" parent="." unique_id=1324359886]
+position = Vector2(926, 631)
+emitting = false
+amount = 10
+randomness = 1.0
+draw_order = 1
+direction = Vector2(0, -14.63)
+spread = 26.0
+gravity = Vector2(0, 800)
+initial_velocity_min = 542.4
+initial_velocity_max = 575.85
+angular_velocity_min = 100.0
+angular_velocity_max = 265.1
+radial_accel_min = 115.45
+radial_accel_max = 116.15
+scale_amount_min = 0.0
+scale_amount_max = 48.55
+color_ramp = SubResource("Gradient_d87nq")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+
 [node name="ToiletFront" type="TextureRect" parent="." unique_id=1934363414]
 layout_mode = 0
 offset_left = 696.0
@@ -131,4 +156,5 @@ text = "flush it homie"
 [connection signal="button_up" from="PlungerArea/Button" to="PlungerArea" method="_on_button_button_up"]
 [connection signal="area_entered" from="TopPlunge" to="." method="_on_top_plunge_area_entered"]
 [connection signal="area_entered" from="BottomPlunge" to="." method="_on_bottom_plunge_area_entered"]
+[connection signal="area_exited" from="BottomPlunge" to="." method="_on_bottom_plunge_area_exited"]
 [connection signal="pressed" from="flush" to="." method="_on_flush_pressed"]
