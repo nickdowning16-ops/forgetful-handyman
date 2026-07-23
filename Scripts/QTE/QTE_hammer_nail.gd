@@ -51,7 +51,6 @@ func start_hold():
 	is_holding = true
 	$PowerSlider.visible = true
 	start_idle_vibration()
-	pass
 
 func end_hold():
 	is_holding = false
@@ -60,7 +59,6 @@ func end_hold():
 	$HammerHand/AnimationPlayer.play("swing_hammer")
 	await $HammerHand/AnimationPlayer.animation_finished
 	check_swing()
-	pass
 
 func start_idle_vibration():
 	idle_tween = create_tween()
@@ -75,8 +73,6 @@ func check_swing():
 		$Nail/Particles/BarsParticle.emitting = true
 		QTE_Manager.passed_QTE()
 		return
-	else:
-		pass # TODO check this?
 		
 	if hold_value > upper_good_swing_value: # hit way too hard
 		$Nail/Particles/GlassParticle.emitting = true
@@ -89,26 +85,6 @@ func check_swing():
 		has_swung = false
 		time_elapsed = 0
 		hold_value = 0
-
-func redo_me():
-	$HammerHand.rotation = base_rotation
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_BACK)
-
-	# wind up but overshoot at a skewed angle
-	# like it clipped the nail sideways instead of striking true
-	tween.tween_property($HammerHand, "rotation", base_rotation - deg_to_rad(30), 0.1)
-	tween.tween_property($HammerHand, "rotation", base_rotation + deg_to_rad(75), 0.12)
-	tween.tween_property($HammerHand, "rotation", base_rotation + deg_to_rad(45), 0.08)
-	
-	num_tries -= 1
-	if num_tries == 0:
-		QTE_Manager.failed_QTE()
-	else:
-		tween.kill()
-		has_swung = false
-		time_elapsed = 0
 
 func check_for_mods():
 	var m = QTE_Manager.selected_hammer_nail_mod

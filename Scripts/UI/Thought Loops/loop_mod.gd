@@ -7,10 +7,6 @@ var mod_data
 
 func _ready():
 	spawn()
-	pass
-
-func _process(delta):
-	pass
 
 func spawn():
 	# play anim of moving
@@ -25,7 +21,7 @@ func spawn():
 	tween.tween_property($EditableContainer, "modulate:a", 1.0, fade_duration)
 	tween.tween_property($EditableContainer, "position:y", $EditableContainer.position.y - rise_distance, fade_duration)
 	
-	# play anim of some idle like glow
+	# TODO play anim of some idle-like glow
 
 func init(data : Loop_Mod_Data):
 	mod_data = data
@@ -41,7 +37,6 @@ func _on_button_mouse_exited():
 	$EditableContainer.scale = Vector2(1.0, 1.0)
 
 func _on_button_pressed():
-	QTE_Manager.set_selected_hammer_nail_mod(mod_data) # TODO genericize
-
-func exit_anim():
-	pass
+	QTE_Manager.set_mod(mod_data)
+	# TODO play animation of it being chosen?
+	# TODO close selector somehow?

@@ -21,12 +21,8 @@ func init(time):
 func end(was_completed):
 	if was_completed:
 		$BackgroundPanel/WindowPanel/PassBox.visible = true
-		pass
 	else:
 		$BackgroundPanel/WindowPanel/FailBox.visible = true
-		pass
-	
-	#QTE_Manager.complete_QTE()
 
 func open_anim():
 	await get_tree().process_frame  # let layout settle first

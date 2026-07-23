@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Loop_Mod_Data" format=3 uid="uid://b7c6qmdg4ex86"]
+[gd_resource type="Resource" script_class="Loop_Mod_Data" format=3 uid="uid://42gu3i3ohe8g"]
 
-[ext_resource type="Script" uid="uid://cyw717emy577f" path="res://Scripts/UI/Thought Loops/loop_mod_data.gd" id="1_fa5ip"]
+[ext_resource type="Script" uid="uid://cyw717emy577f" path="res://Scripts/UI/Thought Loops/loop_mod_data.gd" id="1_vw4yb"]
 
 [sub_resource type="Gradient" id="Gradient_id8g7"]
 offsets = PackedFloat32Array(0, 0.57560974, 0.83902436, 1)
@@ -10,9 +10,9 @@ colors = PackedColorArray(0, 0, 0, 1, 1.540184e-06, 0.63007545, 0.9212114, 1, 0.
 gradient = SubResource("Gradient_id8g7")
 
 [resource]
-script = ExtResource("1_fa5ip")
-id = "hammer_nail"
+script = ExtResource("1_vw4yb")
+id = "lightbulb"
 image = SubResource("GradientTexture2D_o0q4c")
-display_name = "Second try"
-description = "If you fail you can use another nail"
+display_name = "TODO"
+description = "description here"
 metadata/_custom_type_script = "uid://cyw717emy577f"

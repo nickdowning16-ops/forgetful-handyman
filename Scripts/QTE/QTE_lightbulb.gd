@@ -17,15 +17,6 @@ var is_screwing = false
 var in_left = false
 var in_right = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _input(event):
 	if !is_seated:
 		if event is InputEventMouseButton:
@@ -77,20 +68,16 @@ func check_seated():
 func on_seated():
 	is_seated = true
 	print("seated!")
-	# TODO play animation (six grey lines for a click?)
 	$"Lightbulb/CPUParticles2D-RM".emitting = true
 	$"Lightbulb/CPUParticles2D-RU".emitting = true
 	$"Lightbulb/CPUParticles2D-RL".emitting = true
 	$"Lightbulb/CPUParticles2D-LM".emitting = true
 	$"Lightbulb/CPUParticles2D-LU".emitting = true
 	$"Lightbulb/CPUParticles2D-LL".emitting = true
-	
 
 func check_screws():
 	num_screws += 1
 	if num_screws >= req_screws:
 		$Lightbulb/LightbulbOffTexture.visible = false
 		$Lightbulb/LightbulbOnTexture.visible = true
-		# TODO play animation (flash of light)
-		# wait for end
 		QTE_Manager.passed_QTE()
