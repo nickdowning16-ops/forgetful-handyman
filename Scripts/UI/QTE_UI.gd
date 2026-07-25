@@ -14,6 +14,10 @@ func _process(delta):
 	time_left -= delta
 	time_bar.value = (time_left / starting_time) * 100 # bamboozled by not having 100 for a min there
 
+func label(name):
+	var QTE_name = $BackgroundPanel/WindowPanel/UpperWindow/UpperVBoxContainer/QTEDescription
+	QTE_name.text = name
+
 func init(time):
 	starting_time = time
 	time_left = time

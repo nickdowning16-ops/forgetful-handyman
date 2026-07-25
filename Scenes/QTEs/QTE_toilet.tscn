@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://nt7ycrclhr51" path="res://Scenes/QTEs/plunger_area.gd" id="2_e14yh"]
 [ext_resource type="Texture2D" uid="uid://c26hgrx54if4j" path="res://Art/QTEs/Toilet/bathroom.png" id="2_xkcx3"]
 [ext_resource type="Texture2D" uid="uid://bsn375pmmp5iw" path="res://Art/QTEs/Toilet/QTE_toiletFront.png" id="3_e14yh"]
+[ext_resource type="Texture2D" uid="uid://bpm2uallcmdji" path="res://Art/QTEs/Toilet/QTE_flush_handle.png" id="4_d87nq"]
+[ext_resource type="FontFile" uid="uid://ce2apj3vkb08o" path="res://Fonts/FreckleFace/FreckleFace-Regular.ttf" id="8_ia2j1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paldn"]
 size = Vector2(138.00024, 250.12506)
@@ -16,6 +18,24 @@ colors = PackedColorArray(0.34780002, 0.51558995, 0.94, 1, 0, 0.26349998, 0.93, 
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unn2x"]
 size = Vector2(396, 118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia2j1"]
+bg_color = Color(0, 0.21450004, 0.33, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.53, 0.9216666, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Toilet" type="Control" unique_id=541543280]
 layout_mode = 3
@@ -30,6 +50,7 @@ script = ExtResource("1_hphe7")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("2_xkcx3")
 
 [node name="ToiletFull" type="TextureRect" parent="." unique_id=1156966541]
@@ -39,8 +60,31 @@ offset_top = 298.99997
 offset_right = 1096.0
 offset_bottom = 636.0
 scale = Vector2(1.78, 1.78)
+mouse_filter = 0
 texture = ExtResource("1_1bmsg")
 expand_mode = 1
+
+[node name="FlushHandle" type="TextureRect" parent="ToiletFull" unique_id=1507240520]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 56.0
+offset_right = 395.0
+offset_bottom = 172.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(181, 79)
+mouse_filter = 2
+texture = ExtResource("4_d87nq")
+expand_mode = 1
+
+[node name="flush" type="Button" parent="ToiletFull" unique_id=1545008252]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 291.01123
+offset_top = 101.685394
+offset_right = 376.96625
+offset_bottom = 151.6854
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 58
 
 [node name="PlungerArea" type="Area2D" parent="." unique_id=1582747562]
 position = Vector2(913, 260)
@@ -124,37 +168,49 @@ mouse_filter = 2
 texture = ExtResource("3_e14yh")
 expand_mode = 1
 
-[node name="TopPlunge" type="Area2D" parent="." unique_id=1380288667]
-unique_name_in_owner = true
-visible = false
-position = Vector2(904, 91)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPlunge" unique_id=2007504836]
-position = Vector2(0, -31)
-shape = SubResource("RectangleShape2D_unn2x")
-
 [node name="BottomPlunge" type="Area2D" parent="." unique_id=269815127]
 unique_name_in_owner = true
-visible = false
 position = Vector2(918, 880)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPlunge" unique_id=1408339131]
 shape = SubResource("RectangleShape2D_unn2x")
 
-[node name="flush" type="Button" parent="." unique_id=1545008252]
+[node name="FlushChance" type="RichTextLabel" parent="." unique_id=369859465]
+clip_contents = false
 layout_mode = 0
-offset_left = 228.0
-offset_top = 571.0
-offset_right = 621.0
-offset_bottom = 658.0
-theme_override_font_sizes/font_size = 58
-text = "flush it homie"
+offset_left = 37.0
+offset_top = 561.0
+offset_right = 668.0
+offset_bottom = 686.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("8_ia2j1")
+theme_override_font_sizes/normal_font_size = 67
+theme_override_styles/normal = SubResource("StyleBoxFlat_ia2j1")
+text = "Flush Chance: 25%"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
+[node name="FlushChance2" type="RichTextLabel" parent="." unique_id=1217930668]
+clip_contents = false
+layout_mode = 0
+offset_left = 39.0
+offset_top = 312.0
+offset_right = 670.0
+offset_bottom = 523.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("8_ia2j1")
+theme_override_font_sizes/normal_font_size = 67
+theme_override_styles/normal = SubResource("StyleBoxFlat_ia2j1")
+text = "Grab the plunger and start plungin'!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ToiletFull/flush" to="." method="_on_flush_pressed"]
 [connection signal="button_down" from="PlungerArea/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="PlungerArea/Button" to="PlungerArea" method="_on_button_button_down"]
 [connection signal="button_up" from="PlungerArea/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="PlungerArea/Button" to="PlungerArea" method="_on_button_button_up"]
-[connection signal="area_entered" from="TopPlunge" to="." method="_on_top_plunge_area_entered"]
 [connection signal="area_entered" from="BottomPlunge" to="." method="_on_bottom_plunge_area_entered"]
 [connection signal="area_exited" from="BottomPlunge" to="." method="_on_bottom_plunge_area_exited"]
-[connection signal="pressed" from="flush" to="." method="_on_flush_pressed"]

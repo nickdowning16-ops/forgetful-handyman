@@ -270,14 +270,13 @@ collision_mask = 2
 monitoring = false
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1978157328]
-visible = false
 
 [node name="MaybeAll" parent="CanvasLayer2" unique_id=963753931 instance=ExtResource("8_5vw27")]
 
 [node name="QTECanvasLayer" type="CanvasLayer" parent="." unique_id=1453521401]
 
 [node name="ProblemsChecked" parent="." unique_id=17867432 instance=ExtResource("3_h2yge")]
-position = Vector2(164, 97)
+position = Vector2(227, 121)
 
 [node name="TempTruck" type="Sprite2D" parent="." unique_id=558753839]
 position = Vector2(322, 84)
@@ -292,6 +291,9 @@ texture = ExtResource("9_kek77")
 [connection signal="area_exited" from="Problems/ProblemLightbulb" to="." method="_on_problem_lightbulb_area_exited"]
 [connection signal="area_entered" from="Problems/ProblemPicture" to="." method="_on_problem_picture_area_entered"]
 [connection signal="area_exited" from="Problems/ProblemPicture" to="." method="_on_problem_picture_area_exited"]
+[connection signal="area_entered" from="Problems/ProblemToilet" to="." method="_on_problem_toilet_area_entered"]
+[connection signal="area_exited" from="Problems/ProblemToilet" to="." method="_on_problem_toilet_area_exited"]
 [connection signal="area_entered" from="QTEs/QTELightbulb" to="." method="_on_qte_lightbulb_area_entered"]
 [connection signal="area_entered" from="QTEs/QTEPicture" to="." method="_on_qte_picture_area_entered"]
+[connection signal="area_entered" from="QTEs/QTEToilet" to="." method="_on_qte_toilet_area_entered"]
 [connection signal="area_entered" from="ProblemsChecked" to="." method="_on_problems_checked_area_entered"]

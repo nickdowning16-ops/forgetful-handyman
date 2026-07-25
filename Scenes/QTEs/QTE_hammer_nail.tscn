@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://dewb3vdvdy0wc" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod1.tres" id="3_fhkxh"]
 [ext_resource type="Resource" uid="uid://b7c6qmdg4ex86" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod2.tres" id="4_6jwhv"]
 [ext_resource type="Resource" uid="uid://chjh5ttw4ejf4" path="res://Scripts/UI/Thought Loops/Hammer_Nail/hammer_nail_mod3.tres" id="5_m5out"]
+[ext_resource type="Texture2D" uid="uid://baio3ytx7cbv8" path="res://Art/QTEs/Hammer and Nail/picture_room.png" id="6_ue08g"]
 [ext_resource type="Texture2D" uid="uid://bn4ax0ug4ijr8" path="res://Art/QTEs/Hammer and Nail/hn_wrist.png" id="8_glvsy"]
 [ext_resource type="Texture2D" uid="uid://dukag7rj82yf2" path="res://Art/QTEs/Hammer and Nail/hn_hand.png" id="9_qo2vg"]
 [ext_resource type="Texture2D" uid="uid://cjvjsae57l5t2" path="res://Art/QTEs/Hammer and Nail/hn_hammer.png" id="10_wtxhb"]
@@ -169,6 +170,13 @@ size_flags_vertical = 6
 script = ExtResource("1_eg3fw")
 available_modifiers = Array[ExtResource("2_1kltl")]([ExtResource("3_fhkxh"), ExtResource("4_6jwhv"), ExtResource("5_m5out")])
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=643817592]
+layout_mode = 0
+offset_top = -148.0
+offset_right = 1920.0
+offset_bottom = 932.0
+texture = ExtResource("6_ue08g")
 
 [node name="guidelines" type="Control" parent="." unique_id=963674269]
 visible = false

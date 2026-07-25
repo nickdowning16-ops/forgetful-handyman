@@ -84,19 +84,20 @@ layout_mode = 2
 texture = ExtResource("1_bjfho")
 expand_mode = 5
 
-[node name="Light" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=640276273]
-visible = false
-layout_mode = 2
-texture = ExtResource("2_6fbih")
-expand_mode = 5
-
 [node name="Hammer" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=927323523]
 visible = false
 layout_mode = 2
 texture = ExtResource("3_t1xeu")
 expand_mode = 5
 
+[node name="Light" type="TextureRect" parent="SideBar/MarginContainer/BoxContainer" unique_id=640276273]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_6fbih")
+expand_mode = 5
+
 [node name="Hand" type="Control" parent="." unique_id=1132079717]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -112,12 +113,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Hand/AspectRatioContainer" unique_id=1593827567]
-visible = false
-layout_mode = 2
-mouse_filter = 1
-color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="Panel" type="Panel" parent="Hand/AspectRatioContainer" unique_id=1761475401]
 layout_mode = 2

@@ -2,6 +2,7 @@ extends Node
 var QTEUI = preload("res://UI/Scenes/QTE_UI.tscn")
 var QTE_hammer_nail = preload("res://Scenes/QTEs/QTE_hammer_nail.tscn")
 var QTE_lightbulb = preload("res://Scenes/QTEs/QTE_lightbulb.tscn")
+var QTE_toilet = preload("res://Scenes/QTEs/QTE_toilet.tscn")
 var QTE_UI_inst
 
 #region Internal Functions
@@ -65,12 +66,14 @@ func get_hammer_nail_preload():
 	return QTE_hammer_nail
 func get_lightbulb_preload():
 	return QTE_lightbulb
+func get_toilet_preload():
+	return QTE_toilet
 
-func open_QTE(parentUI, selected_QTE):
+func open_QTE(parentUI, selected_QTE, name):
 	QTE_UI_inst = QTEUI.instantiate()
+	QTE_UI_inst.label(name)
 	parentUI.add_child(QTE_UI_inst)
 	QTE_UI_inst.init(10) # TODO magic 10 seconds - change to something else
-	
 	QTE_UI_inst.get_event_container().add_child(selected_QTE.instantiate())
 
 func passed_QTE():

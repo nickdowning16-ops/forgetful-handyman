@@ -6,18 +6,14 @@ var dragging = false
 
 func _process(delta: float) -> void:
 	if dragging:
-		%TopPlunge.show()
-		%BottomPlunge.show()
-
-func _on_top_plunge_area_entered(area: Area2D) -> void:
-	flush_chance += 5
-	print(flush_chance)
+			%BottomPlunge.show()
 
 
 func _on_bottom_plunge_area_entered(area: Area2D) -> void:
-	flush_chance += 5
+	if flush_chance < 100:
+		flush_chance += 5
 	$Splash.emitting = true
-	print(flush_chance)
+	$FlushChance.text = "Flush Chance: " + str(flush_chance) + "%"
 
 func _on_bottom_plunge_area_exited(area: Area2D) -> void:
 	$Splash.emitting = false
@@ -38,4 +34,8 @@ func _on_button_button_up() -> void:
 	dragging = false
 
 func _on_flush_pressed() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property($ToiletFull/FlushHandle, "rotation_degrees", -30.0, 0.2).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(0.5)
+	tween.tween_property($ToiletFull/FlushHandle, "rotation_degrees", 0.0, 0.5).set_ease(Tween.EASE_IN_OUT)
 	flush()

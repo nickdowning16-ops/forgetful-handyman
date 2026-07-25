@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://c8pqubbx6b3ho" path="res://Scripts/UI/main_menu.gd" id="1_2sit6"]
 [ext_resource type="Texture2D" uid="uid://ds7iy7lhsrbkg" path="res://Art/Temp/temp_menu_background.png" id="2_7w4jk"]
 [ext_resource type="Texture2D" uid="uid://cb7dk2id1jj4e" path="res://Art/Temp/temp_title.png" id="3_2oafp"]
+[ext_resource type="FontFile" uid="uid://ce2apj3vkb08o" path="res://Fonts/FreckleFace/FreckleFace-Regular.ttf" id="4_2oafp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paldn"]
 
 [node name="MainMenu" type="Control" unique_id=1937286047]
 layout_mode = 3
@@ -13,7 +16,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2sit6")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=407461870]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.050000012, 0.08166665, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_2oafp")
+theme_override_font_sizes/normal_font_size = 91
+theme_override_styles/normal = SubResource("StyleBoxFlat_paldn")
+text = "Forgetful
+Handyman"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="RichTextLabel" unique_id=1670062998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.51, 0.8775, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_2oafp")
+theme_override_font_sizes/normal_font_size = 91
+text = "Forgetful
+Handyman"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="." unique_id=1935299799]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,6 +105,7 @@ theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="Control2" type="Control" parent="." unique_id=1283065579]
+visible = false
 anchors_preset = 0
 offset_left = 65.0
 offset_top = 86.0
