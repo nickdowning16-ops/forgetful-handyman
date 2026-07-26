@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b3gt2ytuc7tuu" path="res://Art/QTEs/Hammer and Nail/hn_arm.png" id="16_oni0q"]
 [ext_resource type="Texture2D" uid="uid://bngpw1oaeojqn" path="res://Art/QTEs/glass_shard.png" id="16_ue08g"]
 [ext_resource type="Texture2D" uid="uid://dacy0stg52fh" path="res://Art/QTEs/Hammer and Nail/hn_nail.png" id="17_qo2vg"]
+[ext_resource type="FontFile" uid="uid://ce2apj3vkb08o" path="res://Fonts/FreckleFace/FreckleFace-Regular.ttf" id="22_y7qth"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hkagk"]
 
@@ -151,6 +152,24 @@ _data = {
 &"swing_hammer": SubResource("Animation_glvsy")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfb6c"]
+bg_color = Color(0, 0.31, 0.020666648, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.030800004, 0.14, 0.038079996, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yolud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aq7a"]
@@ -158,7 +177,7 @@ content_margin_left = 0.0
 content_margin_top = 100.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -179,6 +198,15 @@ border_width_bottom = 10
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfwah"]
+bg_color = Color(0.39509264, 0.63245755, 0.76450807, 1)
+draw_center = false
+border_width_left = 20
+border_width_right = 20
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
 [node name="QteHammerNail" type="Control" unique_id=1883862197]
 layout_mode = 3
@@ -519,6 +547,25 @@ texture = ExtResource("10_wtxhb")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_qo2vg")
 
+[node name="HammerInstructions" type="RichTextLabel" parent="." unique_id=1602671936]
+clip_contents = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 261.0
+offset_right = 433.0
+offset_bottom = 588.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("22_y7qth")
+theme_override_fonts/bold_font = ExtResource("22_y7qth")
+theme_override_font_sizes/normal_font_size = 67
+theme_override_font_sizes/bold_font_size = 88
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfb6c")
+bbcode_enabled = true
+text = "Hold 'D' to swing the hammer!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PowerSlider" type="HSlider" parent="." unique_id=509498739]
 visible = false
 custom_minimum_size = Vector2(750, 100)
@@ -529,12 +576,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -375.0
-offset_top = 266.0
+offset_top = 247.125
 offset_right = 375.0
-offset_bottom = 366.0
+offset_bottom = 347.125
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_yolud")
 theme_override_styles/slider = SubResource("StyleBoxFlat_6aq7a")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_magek")
 value = 33.0
+scrollable = false
+
+[node name="SwingArea" type="Panel" parent="PowerSlider" unique_id=612265267]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 487.5
+offset_top = -25.0
+offset_right = -162.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfwah")

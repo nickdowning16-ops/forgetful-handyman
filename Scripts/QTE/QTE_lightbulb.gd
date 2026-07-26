@@ -30,23 +30,23 @@ func _input(event):
 			bulb.global_position = event.global_position + drag_offset
 			check_seated()
 	
-	if event is InputEventMouseButton:
-			if event.pressed and in_left:
-				is_screwing = true
-			elif !event.pressed and in_right and is_screwing:
-				check_screws()
-				is_screwing = false
-			else:
-				is_screwing = false
-	
-	if event is InputEventMouseMotion:
-		if left_zone.get_global_rect().has_point(event.position):
-			in_left =true
-		elif right_zone.get_global_rect().has_point(event.position):
-			in_right = true
-		else:
-			in_left = false
-			in_right = false
+#	if event is InputEventMouseButton:
+#			if event.pressed and in_left:
+#				is_screwing = true
+#			elif !event.pressed and in_right and is_screwing:
+#				check_screws()
+#				is_screwing = false
+#			else:
+#				is_screwing = false
+#	
+#	if event is InputEventMouseMotion:
+#		if left_zone.get_global_rect().has_point(event.position):
+#			in_left =true
+#		elif right_zone.get_global_rect().has_point(event.position):
+#			in_right = true
+#		else:
+#			in_left = false
+#			in_right = false
 
 func check_seated():
 	var bulb_rect = bulb.get_global_rect()
@@ -74,6 +74,16 @@ func on_seated():
 	$"Lightbulb/CPUParticles2D-LM".emitting = true
 	$"Lightbulb/CPUParticles2D-LU".emitting = true
 	$"Lightbulb/CPUParticles2D-LL".emitting = true
+	$Lightbulb/HSlider.show()
+
+func _on_h_slider_drag_ended(value_changed: bool) -> void:
+	var screw = $Lightbulb/HSlider
+	if screw.value == 1.0:
+		check_screws()
+		screw.value = -1.0
+
+func _on_h_slider_value_changed(value: float) -> void:
+	$Lightbulb/LightbulbElement.scale.x = $Lightbulb/HSlider.value
 
 func check_screws():
 	num_screws += 1
@@ -81,3 +91,4 @@ func check_screws():
 		$Lightbulb/LightbulbOffTexture.visible = false
 		$Lightbulb/LightbulbOnTexture.visible = true
 		QTE_Manager.passed_QTE()
+		$Lightbulb/HSlider.hide()

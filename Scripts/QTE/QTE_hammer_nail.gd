@@ -51,6 +51,12 @@ func start_hold():
 	is_holding = true
 	$PowerSlider.visible = true
 	start_idle_vibration()
+	var swing_power = $PowerSlider/SwingArea
+	swing_power.size.x = upper_good_swing_value - lower_good_swing_value / 100 * 750
+	swing_power.position = Vector2(lower_good_swing_value / 100.0 * 750.0, -25.0)
+	print(swing_power.size)
+	print(swing_power.position)
+	
 
 func end_hold():
 	is_holding = false

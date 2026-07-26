@@ -17,7 +17,7 @@ offsets = PackedFloat32Array(0.4784946, 1)
 colors = PackedColorArray(0.34780002, 0.51558995, 0.94, 1, 0, 0.26349998, 0.93, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unn2x"]
-size = Vector2(396, 118)
+size = Vector2(396, 172)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia2j1"]
 bg_color = Color(0, 0.21450004, 0.33, 1)
@@ -25,7 +25,7 @@ border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-border_color = Color(0.53, 0.9216666, 1, 1)
+border_color = Color(0, 0.012000017, 0.12, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -173,15 +173,16 @@ unique_name_in_owner = true
 position = Vector2(918, 880)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPlunge" unique_id=1408339131]
+position = Vector2(0, -27)
 shape = SubResource("RectangleShape2D_unn2x")
 
 [node name="FlushChance" type="RichTextLabel" parent="." unique_id=369859465]
 clip_contents = false
 layout_mode = 0
 offset_left = 37.0
-offset_top = 561.0
+offset_top = 647.0
 offset_right = 668.0
-offset_bottom = 686.0
+offset_bottom = 772.0
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("8_ia2j1")
 theme_override_font_sizes/normal_font_size = 67
@@ -197,12 +198,12 @@ layout_mode = 0
 offset_left = 39.0
 offset_top = 312.0
 offset_right = 670.0
-offset_bottom = 523.0
+offset_bottom = 608.0
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("8_ia2j1")
 theme_override_font_sizes/normal_font_size = 67
 theme_override_styles/normal = SubResource("StyleBoxFlat_ia2j1")
-text = "Grab the plunger and start plungin'!"
+text = "Drag the plunger up and down to start plungin', then flush!"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
