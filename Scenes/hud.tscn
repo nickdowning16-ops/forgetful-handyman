@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="SideBar" type="Control" parent="." unique_id=151147227]
 layout_mode = 1
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_36asn")
 
 [node name="TextureRect" type="TextureRect" parent="SideBar" unique_id=1963457839]
@@ -105,6 +105,7 @@ anchor_bottom = 1.0
 offset_top = -300.0
 offset_right = 300.0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Hand" unique_id=1926264851]
 layout_mode = 1
@@ -113,13 +114,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="Hand/AspectRatioContainer" unique_id=1761475401]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_unn2x")
 
 [node name="Hand" type="TextureRect" parent="Hand/AspectRatioContainer" unique_id=185793954]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("7_8jye8")
 expand_mode = 1
 stretch_mode = 4

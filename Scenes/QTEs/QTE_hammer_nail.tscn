@@ -153,8 +153,32 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yolud"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aq7a"]
+content_margin_left = 0.0
+content_margin_top = 100.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_magek"]
+content_margin_left = 329.0
 bg_color = Color(0.15728459, 0.71963984, 0.20212719, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_bottom_left = 30
 
 [node name="QteHammerNail" type="Control" unique_id=1883862197]
 layout_mode = 3
@@ -511,5 +535,6 @@ offset_bottom = 366.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_yolud")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6aq7a")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_magek")
 value = 33.0
